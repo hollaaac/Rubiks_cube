@@ -14,7 +14,6 @@ import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
 
 public class App extends Application {
-    private static final int SIDE_SIZE = 9;
     public static int x;
     public static int y;
     public static int z;
@@ -258,7 +257,6 @@ public class App extends Application {
     }
     public void rotateCube(Group PX_center, Color side) {
         // Requires side
-        Group[] rotateCubes = new Group[9];
         if (side == Color.RED){
             System.out.println(PX_center.getTranslateX());
         }
