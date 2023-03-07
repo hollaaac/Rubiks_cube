@@ -103,7 +103,7 @@ public class App extends Application {
         Camera camera = new PerspectiveCamera(true);
         camera.setTranslateX(0);
         camera.setTranslateY(0);
-        camera.setTranslateZ(-350);
+        camera.setTranslateZ(-450);
         camera.setFarClip(1000);
         scene.setCamera(camera);
 
@@ -138,11 +138,9 @@ public class App extends Application {
         group_center.setOnMouseDragged(event -> {
             double angleX = event.getSceneY() * 0.25;
             double angleY = event.getSceneX() * 0.25;
-
             group_center.getTransforms().setAll(
                 new Rotate(angleX, Rotate.X_AXIS),
-                new Rotate(angleY, Rotate.Y_AXIS),
-                new Translate(0, 0, 0)
+                new Rotate(angleY, Rotate.Y_AXIS)
             );
         });
 
@@ -216,7 +214,6 @@ public class App extends Application {
         top.getTransforms().add(new Translate(-25,-25,26));
         return top;
     }
-
     public static Rectangle createBottom() {
         Rectangle bottom = new Rectangle(50, 50);
         bottom.setFill(Color.YELLOW);
@@ -255,6 +252,7 @@ public class App extends Application {
         right.getTransforms().add(new Translate(-25,-25,-26));
         return right;
     }
+    
     public void rotateCube(Group PX_center, Color side) {
         // Requires side
         if (side == Color.RED){
