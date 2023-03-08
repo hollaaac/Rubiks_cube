@@ -54,16 +54,33 @@ public class App extends Application {
         Group NX_PY_NZ = makeCube(-1, 1, -1);
         Group NX_NY_PZ = makeCube(-1, -1, 1);
 
-        Group all_cubes = new Group();
-        all_cubes.getChildren().addAll(PX_center, PX_PY_PZ, PX_ZY_PZ,
-                                       PX_PY_ZZ, PX_NY_NZ, PX_ZY_NZ,
-                                       PX_NY_ZZ, PX_NY_PZ, PX_PY_NZ,
-                                       ZX_ZY_PZ, ZX_PY_PZ, ZX_PY_ZZ, 
-                                       ZX_ZY_NZ, ZX_NY_NZ, ZX_NY_ZZ,
-                                       ZX_PY_NZ, ZX_NY_PZ, NX_center, 
-                                       NX_ZY_PZ, NX_PY_PZ, NX_PY_ZZ, 
-                                       NX_ZY_NZ, NX_NY_NZ, NX_NY_ZZ, 
-                                       NX_PY_NZ, NX_NY_PZ);
+        Group[] all_cubes = new Group[26];
+        all_cubes[0] = PX_center;
+        all_cubes[1] = PX_PY_PZ;
+        all_cubes[2] = PX_ZY_PZ;
+        all_cubes[3] = PX_PY_ZZ;
+        all_cubes[4] = PX_NY_NZ;
+        all_cubes[5] = PX_ZY_NZ;
+        all_cubes[6] = PX_NY_ZZ;
+        all_cubes[7] = PX_NY_PZ;
+        all_cubes[8] = PX_PY_NZ;
+        all_cubes[9] = ZX_ZY_PZ;
+        all_cubes[10] = ZX_PY_PZ;
+        all_cubes[11] = ZX_PY_ZZ;
+        all_cubes[12] = ZX_ZY_NZ;
+        all_cubes[13] = ZX_NY_NZ;
+        all_cubes[14] = ZX_NY_ZZ;
+        all_cubes[15] = ZX_PY_NZ;
+        all_cubes[16] = ZX_NY_PZ;
+        all_cubes[17] = NX_center;
+        all_cubes[18] = NX_ZY_PZ;
+        all_cubes[19] = NX_PY_PZ;
+        all_cubes[20] = NX_PY_ZZ;
+        all_cubes[21] = NX_ZY_NZ;
+        all_cubes[22] = NX_NY_NZ;
+        all_cubes[23] = NX_NY_ZZ;
+        all_cubes[24] = NX_PY_NZ;
+        all_cubes[25] = NX_NY_PZ;
 
         // Create a scene and add the group to it
         Scene scene = new Scene(group_center, 500, 500, true, SceneAntialiasing.BALANCED);
@@ -103,7 +120,7 @@ public class App extends Application {
         Camera camera = new PerspectiveCamera(true);
         camera.setTranslateX(0);
         camera.setTranslateY(0);
-        camera.setTranslateZ(-450);
+        camera.setTranslateZ(-550);
         camera.setFarClip(1000);
         scene.setCamera(camera);
 
@@ -113,7 +130,7 @@ public class App extends Application {
         stage.show();
 
         // rotation method
-        // rotateCube(PX_center, Color.RED);
+        rotateCube(all_cubes, Color.RED);
 
     }
     public static void main(String[] args) {
@@ -253,10 +270,21 @@ public class App extends Application {
         return right;
     }
     
-    public void rotateCube(Group PX_center, Color side) {
+    public void rotateCube(Group[] all_cubes, Color side) {
         // Requires side
         if (side == Color.RED){
-            System.out.println(PX_center.getTranslateX());
+            // in this case Red side is z = -1 axis
+            /*
+             * all_cubes[5]
+             * all_cubes[8]
+             * all_cubes[4]
+             * all_cubes[15]
+             * all_cubes[12]
+             * all_cubes[13]
+             * all_cubes[24]
+             * all_cubes[21]
+             * all_cubes[22]
+             */
         }
     }
     
