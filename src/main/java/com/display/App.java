@@ -1,14 +1,24 @@
 package com.display;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.geometry.Bounds;
+import javafx.geometry.Point3D;
+import javafx.geometry.Pos;
 import javafx.scene.Camera;
 import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
@@ -17,9 +27,11 @@ public class App extends Application {
     public static int x;
     public static int y;
     public static int z;
+    public boolean shiftDown;
     public int i,j,k;
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         Group group_center = makeCube_center();
         //Group[] all_cubes = new Group[25];
         // Creating each cube on x = 1 axis
@@ -82,9 +94,36 @@ public class App extends Application {
         all_cubes[24] = NX_PY_NZ;
         all_cubes[25] = NX_NY_PZ;
 
-        // Create a scene and add the group to it
+        // Create rubik's cube scene and add the group to it
         Scene scene = new Scene(group_center, 500, 500, true, SceneAntialiasing.BALANCED);
         
+
+
+        // Create help menu scene
+        Button backButton = new Button("Back");
+        Label title = new Label("Help Menu");
+        title.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        Label info1 = new Label("Rotate Red: R");
+        Label info2 = new Label("Rotate Blue: B");
+        Label info3 = new Label("Rotate Green: G");
+        Label info4 = new Label("Rotate White: W");
+        Label info5 = new Label("Rotate Yellow: Y");
+        Label info6 = new Label("Rotate Orange: O");
+        Label info_main = new Label("Hold shift to reverse rotation insead of always right 90 degrees");
+        info1.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        info2.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        info3.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        info4.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        info5.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        info6.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        info_main.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        VBox menuLayout = new VBox();
+        menuLayout.getChildren().add(title);
+        menuLayout.getChildren().addAll(info1, info2, info3, info4, info5, info6, info_main, backButton);
+        Scene menuScene = new Scene(menuLayout, 400, 400);
+
+
+
         // Add all cubes on x = 1 to the scene
         group_center.getChildren().add(PX_center);
         group_center.getChildren().add(PX_PY_PZ);
@@ -124,13 +163,78 @@ public class App extends Application {
         camera.setFarClip(1000);
         scene.setCamera(camera);
 
+        
+
         // Display the scene on a stage
         Stage stage = new Stage();
+        // Create menu key listener and bind to H
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.H) {
+                stage.setScene(menuScene);
+            };
+
+            if (event.getCode() == KeyCode.R && shiftDown == false) {
+                rotateCube(all_cubes, Color.RED, 90);
+            };
+            if (event.getCode() == KeyCode.G && shiftDown == false) {
+                rotateCube(all_cubes, Color.GREEN, -90);
+            };
+            if (event.getCode() == KeyCode.B && shiftDown == false) {
+                rotateCube(all_cubes, Color.BLUE, 90);
+            };
+            if (event.getCode() == KeyCode.Y && shiftDown == false) {
+                rotateCube(all_cubes, Color.YELLOW, 90);
+            };
+            if (event.getCode() == KeyCode.W && shiftDown == false) {
+                rotateCube(all_cubes, Color.WHITE, -90);
+            };
+            if (event.getCode() == KeyCode.O && shiftDown == false) {
+                rotateCube(all_cubes, Color.ORANGE, -90);
+            };
+
+
+            if (event.getCode() == KeyCode.SHIFT){
+                shiftDown = true;
+            }
+            else if (shiftDown && event.getCode() == KeyCode.R) {
+                rotateCube(all_cubes, Color.RED, -90);
+            }
+            else if (shiftDown && event.getCode() == KeyCode.G) {
+                rotateCube(all_cubes, Color.GREEN, 90);
+            }
+            else if (shiftDown && event.getCode() == KeyCode.B) {
+                rotateCube(all_cubes, Color.BLUE, -90);
+            }
+            else if (shiftDown && event.getCode() == KeyCode.Y) {
+                rotateCube(all_cubes, Color.YELLOW, -90);
+            }
+            else if (shiftDown && event.getCode() == KeyCode.W) {
+                rotateCube(all_cubes, Color.WHITE, 90);
+            }
+            else if (shiftDown && event.getCode() == KeyCode.O) {
+                rotateCube(all_cubes, Color.ORANGE, 90);
+            }
+        });
+        scene.setOnKeyReleased(event -> {
+            if (event.getCode() == KeyCode.SHIFT) {
+                shiftDown = false;
+            }
+        });
+        
+        backButton.setOnAction(event -> {
+            stage.setScene(scene);
+        });
         stage.setScene(scene);
         stage.show();
 
+        
         // rotation method
-        rotateCube(all_cubes, Color.RED);
+        //rotateCube(all_cubes, Color.RED);
+        //rotateCube(all_cubes, Color.BLUE);
+        //rotateCube(all_cubes, Color.ORANGE);
+        //rotateCube(all_cubes, Color.GREEN);
+        //rotateCube(all_cubes, Color.YELLOW);
+        //rotateCube(all_cubes, Color.WHITE);
 
     }
     public static void main(String[] args) {
@@ -270,21 +374,128 @@ public class App extends Application {
         return right;
     }
     
-    public void rotateCube(Group[] all_cubes, Color side) {
+    public void rotateCube(Group[] all_cubes, Color side, double direction) {
         // Requires side
         if (side == Color.RED){
-            // in this case Red side is z = -1 axis
-            /*
-             * all_cubes[5]
-             * all_cubes[8]
-             * all_cubes[4]
-             * all_cubes[15]
-             * all_cubes[12]
-             * all_cubes[13]
-             * all_cubes[24]
-             * all_cubes[21]
-             * all_cubes[22]
-             */
+            Rotate rotation = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[17].getTransforms().add(rotation);
+            Rotate rotation2 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[18].getTransforms().add(rotation2);
+            Rotate rotation3 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[19].getTransforms().add(rotation3);
+            Rotate rotation4 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[20].getTransforms().add(rotation4);
+            Rotate rotation5 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[21].getTransforms().add(rotation5);
+            Rotate rotation6 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[22].getTransforms().add(rotation6);
+            Rotate rotation7 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[23].getTransforms().add(rotation7);
+            Rotate rotation8 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[24].getTransforms().add(rotation8);
+            Rotate rotation9 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[25].getTransforms().add(rotation9);
+
+        }
+        else if (side == Color.BLUE) {
+            Rotate rotation = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[5].getTransforms().add(rotation);
+            Rotate rotation2 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[13].getTransforms().add(rotation2);
+            Rotate rotation3 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[21].getTransforms().add(rotation3);
+            Rotate rotation4 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[15].getTransforms().add(rotation4);
+            Rotate rotation5 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[8].getTransforms().add(rotation5);
+            Rotate rotation6 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[4].getTransforms().add(rotation6);
+            Rotate rotation7 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[12].getTransforms().add(rotation7);
+            Rotate rotation8 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[24].getTransforms().add(rotation8);
+            Rotate rotation9 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[22].getTransforms().add(rotation9);
+        }
+        else if (side == Color.ORANGE) {
+            Rotate rotation = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[0].getTransforms().add(rotation);
+            Rotate rotation2 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[1].getTransforms().add(rotation2);
+            Rotate rotation3 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[2].getTransforms().add(rotation3);
+            Rotate rotation4 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[3].getTransforms().add(rotation4);
+            Rotate rotation5 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[4].getTransforms().add(rotation5);
+            Rotate rotation6 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[5].getTransforms().add(rotation6);
+            Rotate rotation7 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[6].getTransforms().add(rotation7);
+            Rotate rotation8 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[7].getTransforms().add(rotation8);
+            Rotate rotation9 = new Rotate(direction, Rotate.X_AXIS);
+            all_cubes[8].getTransforms().add(rotation9);
+        }
+        else if (side == Color.GREEN) {
+            Rotate rotation = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[1].getTransforms().add(rotation);
+            Rotate rotation2 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[2].getTransforms().add(rotation2);
+            Rotate rotation3 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[7].getTransforms().add(rotation3);
+            Rotate rotation4 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[16].getTransforms().add(rotation4);
+            Rotate rotation5 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[9].getTransforms().add(rotation5);
+            Rotate rotation6 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[10].getTransforms().add(rotation6);
+            Rotate rotation7 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[25].getTransforms().add(rotation7);
+            Rotate rotation8 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[18].getTransforms().add(rotation8);
+            Rotate rotation9 = new Rotate(direction, Rotate.Z_AXIS);
+            all_cubes[19].getTransforms().add(rotation9);
+        }
+        else if (side == Color.YELLOW) {
+            Rotate rotation = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[1].getTransforms().add(rotation);
+            Rotate rotation2 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[3].getTransforms().add(rotation2);
+            Rotate rotation3 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[8].getTransforms().add(rotation3);
+            Rotate rotation4 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[15].getTransforms().add(rotation4);
+            Rotate rotation5 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[24].getTransforms().add(rotation5);
+            Rotate rotation6 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[11].getTransforms().add(rotation6);
+            Rotate rotation7 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[10].getTransforms().add(rotation7);
+            Rotate rotation8 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[20].getTransforms().add(rotation8);
+            Rotate rotation9 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[19].getTransforms().add(rotation9);
+        }
+        else if (side == Color.WHITE) {
+            Rotate rotation = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[14].getTransforms().add(rotation);
+            Rotate rotation2 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[16].getTransforms().add(rotation2);
+            Rotate rotation3 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[13].getTransforms().add(rotation3);
+            Rotate rotation4 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[6].getTransforms().add(rotation4);
+            Rotate rotation5 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[7].getTransforms().add(rotation5);
+            Rotate rotation6 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[4].getTransforms().add(rotation6);
+            Rotate rotation7 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[22].getTransforms().add(rotation7);
+            Rotate rotation8 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[23].getTransforms().add(rotation8);
+            Rotate rotation9 = new Rotate(direction, Rotate.Y_AXIS);
+            all_cubes[25].getTransforms().add(rotation9);
         }
     }
     
