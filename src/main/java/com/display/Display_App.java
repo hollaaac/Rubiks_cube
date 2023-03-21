@@ -179,18 +179,28 @@ public class Display_App extends Application{
             };
             if (event.getCode() == KeyCode.G && shiftDown == false) {
                 rotateCube(all_cubes, Color.GREEN, -90);
+                block.turnNotModular("L");
+                block.printBlock();
             };
             if (event.getCode() == KeyCode.B && shiftDown == false) {
                 rotateCube(all_cubes, Color.BLUE, 90);
+                block.turnNotModular("R");
+                block.printBlock();
             };
             if (event.getCode() == KeyCode.Y && shiftDown == false) {
                 rotateCube(all_cubes, Color.YELLOW, 90);
+                block.turnNotModular("D");
+                block.printBlock();
             };
             if (event.getCode() == KeyCode.W && shiftDown == false) {
                 rotateCube(all_cubes, Color.WHITE, -90);
+                block.turnNotModular("U'");
+                block.printBlock();
             };
             if (event.getCode() == KeyCode.O && shiftDown == false) {
                 rotateCube(all_cubes, Color.ORANGE, -90);
+                block.turnNotModular("B");
+                block.printBlock();
             };
 
 
@@ -199,21 +209,33 @@ public class Display_App extends Application{
             }
             else if (shiftDown && event.getCode() == KeyCode.R) {
                 rotateCube(all_cubes, Color.RED, -90);
+                block.turnNotModular("F'");
+                block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.G) {
                 rotateCube(all_cubes, Color.GREEN, 90);
+                block.turnNotModular("L'");
+                block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.B) {
                 rotateCube(all_cubes, Color.BLUE, -90);
+                block.turnNotModular("R'");
+                block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.Y) {
                 rotateCube(all_cubes, Color.YELLOW, -90);
+                block.turnNotModular("D'");
+                block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.W) {
                 rotateCube(all_cubes, Color.WHITE, 90);
+                block.turnNotModular("U");
+                block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.O) {
                 rotateCube(all_cubes, Color.ORANGE, 90);
+                block.turnNotModular("B'");
+                block.printBlock();
             }
         });
         scene.setOnKeyReleased(event -> {
