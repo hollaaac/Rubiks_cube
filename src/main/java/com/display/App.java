@@ -15,6 +15,7 @@ public class App{
         System.out.println("-------------------------");
         System.out.println("");     
 
+        Application.launch(Display_App.class, args);
         Block block = new Block(3);
         block.printer();
 
@@ -25,11 +26,11 @@ public class App{
         System.out.println("-------------------------");
         System.out.println("");
 
-        block.printBlock();
-        block.turnNotModular("F");
-        block.printBlock();
+        //block.printBlock();
+        //block.turnNotModular("F");
+        //block.printBlock();
 
-        Application.launch(Display_App.class, args);
+
     }
 
     

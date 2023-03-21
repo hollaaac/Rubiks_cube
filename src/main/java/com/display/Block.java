@@ -409,6 +409,7 @@ public class Block {
             }
 
         }
+        
 
     }
 
@@ -458,7 +459,7 @@ public class Block {
     }
 
     //Prints the block all together in "one 2d array"
-    void printBlock (){
+    public void printBlock (){
         System.out.println("            " + "[" + Block[0][0][0].colors[1] + "] [" + Block[1][0][0].colors[1] + "] [" + Block[2][0][0].colors[1] + "]");
         System.out.println("            " + "[" + Block[0][0][1].colors[1] + "] [" + Block[1][0][1].colors[1] + "] [" + Block[2][0][1].colors[1] + "]");
         System.out.println("            " + "[" + Block[0][0][2].colors[1] + "] [" + Block[1][0][2].colors[1] + "] [" + Block[2][0][2].colors[1] + "]");
@@ -545,5 +546,6 @@ public class Block {
 
         }
     }
+
 }
 

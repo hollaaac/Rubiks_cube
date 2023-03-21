@@ -29,6 +29,8 @@ public class Display_App extends Application{
     @Override
     public void start(Stage primaryStage){
 
+        Block block = new Block(3);
+
         Group group_center = makeCube_center();
         //Group[] all_cubes = new Group[25];
         // Creating each cube on x = 1 axis
@@ -172,6 +174,8 @@ public class Display_App extends Application{
 
             if (event.getCode() == KeyCode.R && shiftDown == false) {
                 rotateCube(all_cubes, Color.RED, 90);
+                block.turnNotModular("F");
+                block.printBlock();
             };
             if (event.getCode() == KeyCode.G && shiftDown == false) {
                 rotateCube(all_cubes, Color.GREEN, -90);
