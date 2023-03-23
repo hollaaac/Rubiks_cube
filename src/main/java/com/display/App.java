@@ -13,7 +13,7 @@ public class App{
         System.out.println("-------------------------");
         System.out.println("----------Start----------");
         System.out.println("-------------------------");
-        System.out.println("")     
+        System.out.println("");     
 
         Application.launch(Display_App.class, args);
         Block block = new Block(3);
