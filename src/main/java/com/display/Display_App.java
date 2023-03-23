@@ -398,6 +398,12 @@ public class Display_App extends Application{
     
     public void rotateCube(Group[] all_cubes, Color side, double direction) {
         Group[] rotateGroup = new Group[9];
+        int top = 1;
+        int bottom = 2;
+        int backright = 3;
+        int backleft = 4;
+        int frontleft = 5;
+        int frontright = 6;
 
         // index 1 = top (white)
         // index 2 = bottom (yellow)
@@ -481,47 +487,47 @@ public class Display_App extends Application{
             Color tempColor19;
             Color tempColor20;
 
-            refRectangle1 = (Rectangle) rotateGroup[3].getChildren().get(1);
-            refRectangle2 = (Rectangle) rotateGroup[3].getChildren().get(3);
-            refRectangle3 = (Rectangle) rotateGroup[3].getChildren().get(6);
-            refRectangle4 = (Rectangle) rotateGroup[5].getChildren().get(3);
-            refRectangle5 = (Rectangle) rotateGroup[5].getChildren().get(6);
-            refRectangle6 = (Rectangle) rotateGroup[8].getChildren().get(2);
-            refRectangle7 = (Rectangle) rotateGroup[8].getChildren().get(3);
-            refRectangle8 = (Rectangle) rotateGroup[8].getChildren().get(6);
-            refRectangle9 = (Rectangle) rotateGroup[2].getChildren().get(1);
-            refRectangle10 = (Rectangle) rotateGroup[2].getChildren().get(6);
-            refRectangle11 = (Rectangle) rotateGroup[7].getChildren().get(2);
-            refRectangle12 = (Rectangle) rotateGroup[7].getChildren().get(6);
-            refRectangle13 = (Rectangle) rotateGroup[1].getChildren().get(1);
-            refRectangle14 = (Rectangle) rotateGroup[1].getChildren().get(4);
-            refRectangle15 = (Rectangle) rotateGroup[1].getChildren().get(6);
-            refRectangle16 = (Rectangle) rotateGroup[4].getChildren().get(4);
-            refRectangle17 = (Rectangle) rotateGroup[4].getChildren().get(6);
-            refRectangle18 = (Rectangle) rotateGroup[6].getChildren().get(4);
-            refRectangle19 = (Rectangle) rotateGroup[6].getChildren().get(2);
-            refRectangle20 = (Rectangle) rotateGroup[6].getChildren().get(6);
+            refRectangle1 = (Rectangle) rotateGroup[3].getChildren().get(top);
+            refRectangle2 = (Rectangle) rotateGroup[3].getChildren().get(backright);
+            refRectangle3 = (Rectangle) rotateGroup[3].getChildren().get(frontright);
+            refRectangle4 = (Rectangle) rotateGroup[5].getChildren().get(backright);
+            refRectangle5 = (Rectangle) rotateGroup[5].getChildren().get(frontright);
+            refRectangle6 = (Rectangle) rotateGroup[8].getChildren().get(bottom);
+            refRectangle7 = (Rectangle) rotateGroup[8].getChildren().get(backright);
+            refRectangle8 = (Rectangle) rotateGroup[8].getChildren().get(frontright);
+            refRectangle9 = (Rectangle) rotateGroup[2].getChildren().get(top);
+            refRectangle10 = (Rectangle) rotateGroup[2].getChildren().get(frontright);
+            refRectangle11 = (Rectangle) rotateGroup[7].getChildren().get(bottom);
+            refRectangle12 = (Rectangle) rotateGroup[7].getChildren().get(frontright);
+            refRectangle13 = (Rectangle) rotateGroup[1].getChildren().get(top);
+            refRectangle14 = (Rectangle) rotateGroup[1].getChildren().get(backleft);
+            refRectangle15 = (Rectangle) rotateGroup[1].getChildren().get(frontright);
+            refRectangle16 = (Rectangle) rotateGroup[4].getChildren().get(backleft);
+            refRectangle17 = (Rectangle) rotateGroup[4].getChildren().get(frontright);
+            refRectangle18 = (Rectangle) rotateGroup[6].getChildren().get(backleft);
+            refRectangle19 = (Rectangle) rotateGroup[6].getChildren().get(bottom);
+            refRectangle20 = (Rectangle) rotateGroup[6].getChildren().get(frontright);
 
-            rect1 = (Rectangle) rotateGroup[1].getChildren().get(4);
-            rect2 = (Rectangle) rotateGroup[1].getChildren().get(1);
-            rect3 = (Rectangle) rotateGroup[1].getChildren().get(6);
-            rect4 = (Rectangle) rotateGroup[2].getChildren().get(1);
-            rect5 = (Rectangle) rotateGroup[2].getChildren().get(6);
-            rect6 = (Rectangle) rotateGroup[3].getChildren().get(3);
-            rect7 = (Rectangle) rotateGroup[3].getChildren().get(1);
-            rect8 = (Rectangle) rotateGroup[3].getChildren().get(6);
-            rect9 = (Rectangle) rotateGroup[4].getChildren().get(4);
-            rect10 = (Rectangle) rotateGroup[4].getChildren().get(6);
-            rect11 = (Rectangle) rotateGroup[5].getChildren().get(3);
-            rect12 = (Rectangle) rotateGroup[5].getChildren().get(6);
-            rect13 = (Rectangle) rotateGroup[6].getChildren().get(4);
-            rect14 = (Rectangle) rotateGroup[6].getChildren().get(2);
-            rect15 = (Rectangle) rotateGroup[6].getChildren().get(6);
-            rect16 = (Rectangle) rotateGroup[7].getChildren().get(2);
-            rect17 = (Rectangle) rotateGroup[7].getChildren().get(6);
-            rect18 = (Rectangle) rotateGroup[8].getChildren().get(2);
-            rect19 = (Rectangle) rotateGroup[8].getChildren().get(3);
-            rect20 = (Rectangle) rotateGroup[8].getChildren().get(6);
+            rect1 = (Rectangle) rotateGroup[1].getChildren().get(backleft);
+            rect2 = (Rectangle) rotateGroup[1].getChildren().get(top);
+            rect3 = (Rectangle) rotateGroup[1].getChildren().get(frontright);
+            rect4 = (Rectangle) rotateGroup[2].getChildren().get(top);
+            rect5 = (Rectangle) rotateGroup[2].getChildren().get(frontright);
+            rect6 = (Rectangle) rotateGroup[3].getChildren().get(backright);
+            rect7 = (Rectangle) rotateGroup[3].getChildren().get(top);
+            rect8 = (Rectangle) rotateGroup[3].getChildren().get(frontright);
+            rect9 = (Rectangle) rotateGroup[4].getChildren().get(backleft);
+            rect10 = (Rectangle) rotateGroup[4].getChildren().get(frontright);
+            rect11 = (Rectangle) rotateGroup[5].getChildren().get(backright);
+            rect12 = (Rectangle) rotateGroup[5].getChildren().get(frontright);
+            rect13 = (Rectangle) rotateGroup[6].getChildren().get(backleft);
+            rect14 = (Rectangle) rotateGroup[6].getChildren().get(bottom);
+            rect15 = (Rectangle) rotateGroup[6].getChildren().get(frontright);
+            rect16 = (Rectangle) rotateGroup[7].getChildren().get(bottom);
+            rect17 = (Rectangle) rotateGroup[7].getChildren().get(frontright);
+            rect18 = (Rectangle) rotateGroup[8].getChildren().get(bottom);
+            rect19 = (Rectangle) rotateGroup[8].getChildren().get(backright);
+            rect20 = (Rectangle) rotateGroup[8].getChildren().get(frontright);
 
             tempColor1 = (Color) refRectangle1.getFill();
             tempColor2 = (Color) refRectangle2.getFill();
