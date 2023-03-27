@@ -1,9 +1,9 @@
 package com.display;
+import java.util.Random;
+
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.scene.Camera;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
@@ -174,6 +174,15 @@ public class Display_App extends Application{
             if (event.getCode() == KeyCode.H) {
                 stage.setScene(menuScene);
             };
+            if (event.getCode() == KeyCode.A) {
+                try {
+                    randomizeCube(25, block, all_cubes);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                block.printBlock();
+            }
 
             if (event.getCode() == KeyCode.R && shiftDown == false) {
                 rotate.rotateCube(all_cubes, Color.RED, 90);
@@ -212,30 +221,42 @@ public class Display_App extends Application{
             }
             else if (shiftDown && event.getCode() == KeyCode.R) {
                 rotate.rotateCube(all_cubes, Color.RED, -90);
+                rotate.rotateCube(all_cubes, Color.RED, -90);
+                rotate.rotateCube(all_cubes, Color.RED, -90);
                 block.turnNotModular("F'");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.G) {
+                rotate.rotateCube(all_cubes, Color.GREEN, 90);
+                rotate.rotateCube(all_cubes, Color.GREEN, 90);
                 rotate.rotateCube(all_cubes, Color.GREEN, 90);
                 block.turnNotModular("L'");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.B) {
                 rotate.rotateCube(all_cubes, Color.BLUE, -90);
+                rotate.rotateCube(all_cubes, Color.BLUE, -90);
+                rotate.rotateCube(all_cubes, Color.BLUE, -90);
                 block.turnNotModular("R'");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.Y) {
+                rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+                rotate.rotateCube(all_cubes, Color.YELLOW, -90);
                 rotate.rotateCube(all_cubes, Color.YELLOW, -90);
                 block.turnNotModular("D'");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.W) {
                 rotate.rotateCube(all_cubes, Color.WHITE, 90);
+                rotate.rotateCube(all_cubes, Color.WHITE, 90);
+                rotate.rotateCube(all_cubes, Color.WHITE, 90);
                 block.turnNotModular("U");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.O) {
+                rotate.rotateCube(all_cubes, Color.ORANGE, 90);
+                rotate.rotateCube(all_cubes, Color.ORANGE, 90);
                 rotate.rotateCube(all_cubes, Color.ORANGE, 90);
                 block.turnNotModular("B'");
                 block.printBlock();
@@ -395,6 +416,107 @@ public class Display_App extends Application{
         right.getTransforms().add(new Rotate(90, Rotate.Y_AXIS));
         right.getTransforms().add(new Translate(-25,-25,-26));
         return right;
+    }
+
+    //Randomizes cube with user input on how many random turns it makes.
+    //Will sometimes do two turns that equal out, could be fixed
+    void randomizeCube(int turns, Block block, Group[] all_cubes) throws InterruptedException{
+        Random rn = new Random();
+        RotateCube rotate = new RotateCube();
+        int faceTurn;
+
+        for (int i = 0; i < turns; ++i){
+            Thread.sleep(5);
+            faceTurn = rn.nextInt(11);
+
+            if(faceTurn == 0){
+                block.turnNotModular("F");
+                rotate.rotateCube(all_cubes, Color.RED, 90);
+                System.out.println("Red");  
+            }
+
+            if(faceTurn == 1){
+                block.turnNotModular("F'");
+                rotate.rotateCube(all_cubes, Color.RED, -90);
+                rotate.rotateCube(all_cubes, Color.RED, -90);
+                rotate.rotateCube(all_cubes, Color.RED, -90);
+                System.out.println("Red inverse");  
+            }
+
+            if(faceTurn == 2){
+                block.turnNotModular("B");
+                rotate.rotateCube(all_cubes, Color.ORANGE, -90);
+                System.out.println("Orange"); 
+            }
+
+            if(faceTurn == 3){
+                block.turnNotModular("B'");
+                rotate.rotateCube(all_cubes, Color.ORANGE, 90);
+                rotate.rotateCube(all_cubes, Color.ORANGE, 90);
+                rotate.rotateCube(all_cubes, Color.ORANGE, 90);
+                System.out.println("Orange inverse");  
+            }
+
+            if(faceTurn == 4){
+                block.turnNotModular("R");
+                rotate.rotateCube(all_cubes, Color.BLUE, 90);
+                System.out.println("Blue");  
+            }
+
+            if(faceTurn == 5){
+                block.turnNotModular("R'");
+                rotate.rotateCube(all_cubes, Color.BLUE, -90);
+                rotate.rotateCube(all_cubes, Color.BLUE, -90);
+                rotate.rotateCube(all_cubes, Color.BLUE, -90);
+                System.out.println("Blue inverse"); 
+            }
+
+            if(faceTurn == 6){
+                block.turnNotModular("L");
+                rotate.rotateCube(all_cubes, Color.GREEN, -90);  
+                System.out.println("Green"); 
+            }
+
+            if(faceTurn == 7){
+                block.turnNotModular("L'");
+                rotate.rotateCube(all_cubes, Color.GREEN, 90);
+                rotate.rotateCube(all_cubes, Color.GREEN, 90);
+                rotate.rotateCube(all_cubes, Color.GREEN, 90);
+                System.out.println("Green inverse");  
+            }
+            
+            if(faceTurn == 8){
+                block.turnNotModular("U");
+                rotate.rotateCube(all_cubes, Color.WHITE, -90);
+                rotate.rotateCube(all_cubes, Color.WHITE, -90);
+                rotate.rotateCube(all_cubes, Color.WHITE, -90);
+                System.out.println("White inverse");
+            }
+
+            if(faceTurn == 9){
+                block.turnNotModular("U'");
+                rotate.rotateCube(all_cubes, Color.WHITE, 90);
+                System.out.println("White");
+            }
+
+            if(faceTurn == 10){
+                block.turnNotModular("D");
+                rotate.rotateCube(all_cubes, Color.YELLOW, 90);
+                System.out.println("Yellow"); 
+            }
+
+            if(faceTurn == 11){
+                block.turnNotModular("D'");
+                rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+                rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+                rotate.rotateCube(all_cubes, Color.YELLOW, -90); 
+                System.out.println("Yellow inverse");  
+            }
+
+            //printBlock();
+            //System.out.println();
+
+        }
     }
     
     
