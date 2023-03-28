@@ -1,7 +1,7 @@
 package com.display;
 
-import java.io.*;
-import java.util.*;
+//import java.io.*;
+//import java.util.*;
 import javafx.application.Application;
 
 
@@ -13,9 +13,9 @@ public class App{
         System.out.println("-------------------------");
         System.out.println("----------Start----------");
         System.out.println("-------------------------");
-        System.out.println("")     
+        System.out.println("");     
 
-        Application.launch(Display_App.class, args);
+        //Application.launch(Display_App.class, args);
         Block block = new Block(3);
         block.printer();
 
