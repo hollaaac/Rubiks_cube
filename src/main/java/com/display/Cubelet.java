@@ -1,6 +1,4 @@
 package com.display;
-
-import java.io.*;
 import java.util.*;
 import java.lang.Math;
 
