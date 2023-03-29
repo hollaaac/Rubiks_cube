@@ -1,9 +1,8 @@
 package com.display;
+
+import java.io.*;
 import java.util.*;
 import java.lang.Math;
-import java.io.*;
-
-
 
 public class Cubelet {
     
@@ -97,8 +96,6 @@ public class Cubelet {
 
     
     }
-
-
 }
 
 
