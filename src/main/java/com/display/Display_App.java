@@ -448,7 +448,6 @@ public class Display_App extends Application{
         int faceTurn;
 
         for (int i = 0; i < turns; ++i){
-            Thread.sleep(5);
             faceTurn = rn.nextInt(11);
 
             if(faceTurn == 0){
@@ -534,8 +533,8 @@ public class Display_App extends Application{
                 rotate.rotateCube(all_cubes, Color.YELLOW, -90); 
                 System.out.println("Yellow inverse");  
             }
-
-            //printBlock();
+            Thread.sleep(5);
+            //block.printBlock();
             //System.out.println();
 
         }

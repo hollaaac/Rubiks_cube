@@ -234,7 +234,7 @@ public class Block {
                 
         }
 
-        if(direction == "D"){ //Bottom (Down) ClockWise
+        if(direction == "D'"){ //Bottom (Down) ClockWise
 
             tempCubelet = Block[0][2][0];
             Block[0][2][0] = Block[0][2][2];
@@ -256,7 +256,7 @@ public class Block {
                 
         }
 
-        if(direction == "D'"){ //Bottom (Down) Counter-ClockWise
+        if(direction == "D"){ //Bottom (Down) Counter-ClockWise
 
             tempCubelet = Block[0][2][0];
             Block[0][2][0] = Block[2][2][0];
@@ -278,7 +278,7 @@ public class Block {
                 
         }
 
-        if(direction == "U"){ //Up (Top) ClockWise
+        if(direction == "U'"){ //Up (Top) ClockWise
 
             tempCubelet = Block[0][0][0];
             Block[0][0][0] = Block[0][0][2];
@@ -300,7 +300,7 @@ public class Block {
                 
         }
 
-        if(direction == "U'"){ //Up (Top) Counter-ClockWise
+        if(direction == "U"){ //Up (Top) Counter-ClockWise
 
             tempCubelet = Block[0][0][0];
             Block[0][0][0] = Block[2][0][0];
