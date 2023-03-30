@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -27,11 +29,15 @@ public class Display_App extends Application{
     public static int z;
     public boolean shiftDown;
     public int i,j,k;
+    public int randomize_Int;
+    public int newValue;
 
     @Override
     public void start(Stage primaryStage){
 
         Block block = new Block(3);
+        randomize_Int = 25;
+        
 
         Group group_center = makeCube_center();
         //Group[] all_cubes = new Group[25];
@@ -102,6 +108,7 @@ public class Display_App extends Application{
 
         // Create help menu scene
         Button backButton = new Button("Back");
+        Button updateRandom = new Button("Update randomizer number");
         Label title = new Label("Help Menu");
         title.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         Label info1 = new Label("Rotate Red: R");
@@ -111,6 +118,9 @@ public class Display_App extends Application{
         Label info5 = new Label("Rotate Yellow: Y");
         Label info6 = new Label("Rotate Orange: O");
         Label info_main = new Label("Hold shift to reverse rotation insead of always right 90 degrees");
+        Label randomize_Label = new Label("Randomize cube: A");
+        TextField randomize_Text = new TextField();
+        Label randomLabel = new Label("Variable: " + randomize_Int);
         info1.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         info2.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         info3.setFont(Font.font("Arial", FontWeight.BOLD, 16));
@@ -118,9 +128,11 @@ public class Display_App extends Application{
         info5.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         info6.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         info_main.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        randomize_Label.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        Slider slider = new Slider(0, 100, 0);
         VBox menuLayout = new VBox();
         menuLayout.getChildren().add(title);
-        menuLayout.getChildren().addAll(info1, info2, info3, info4, info5, info6, info_main, backButton);
+        menuLayout.getChildren().addAll(info1, info2, info3, info4, info5, info6, info_main, randomize_Label, slider, randomLabel, updateRandom, backButton);
         Scene menuScene = new Scene(menuLayout, 400, 400);
 
 
@@ -176,7 +188,7 @@ public class Display_App extends Application{
             };
             if (event.getCode() == KeyCode.A) {
                 try {
-                    randomizeCube(25, block, all_cubes);
+                    randomizeCube(randomize_Int, block, all_cubes);
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -267,10 +279,20 @@ public class Display_App extends Application{
                 shiftDown = false;
             }
         });
+        updateRandom.setOnAction(e -> {
+            randomize_Int = (int) slider.getValue();
+        });
+        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            randomize_Int = newValue.intValue();
+        });
         
+        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            randomLabel.setText("Variable: " + newValue.intValue());
+        });
         backButton.setOnAction(event -> {
             stage.setScene(scene);
         });
+
         stage.setScene(scene);
         stage.show();
 
