@@ -1,6 +1,6 @@
 package com.display;
-import java.util.Random;
 
+import java.util.Random;
 import javafx.application.Application;
 import javafx.scene.Camera;
 import javafx.scene.Group;
@@ -10,7 +10,6 @@ import javafx.scene.SceneAntialiasing;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -119,7 +118,6 @@ public class Display_App extends Application{
         Label info6 = new Label("Rotate Orange: O");
         Label info_main = new Label("Hold shift to reverse rotation insead of always right 90 degrees");
         Label randomize_Label = new Label("Randomize cube: A");
-        TextField randomize_Text = new TextField();
         Label randomLabel = new Label("Variable: " + randomize_Int);
         info1.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         info2.setFont(Font.font("Arial", FontWeight.BOLD, 16));

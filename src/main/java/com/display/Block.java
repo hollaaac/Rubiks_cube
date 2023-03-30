@@ -1,8 +1,6 @@
 package com.display;
 
-import java.io.*;
 import java.util.*;
-import java.lang.Math;
 
 public class Block {
     
@@ -130,6 +128,7 @@ public class Block {
         //        //System.out.println("Array [" + 0 + "] [" + y + "] [" + z + "] -> " + this.Block[0][y][z].getColors()[0] + ", " + Block[0][y][z].getColors()[1] + ", " + Block[0][y][z].getColors()[2]);
         //    }
         //}
+        System.out.println(arrayHelper);
 
         System.out.println(""); //Space in terminal
 
