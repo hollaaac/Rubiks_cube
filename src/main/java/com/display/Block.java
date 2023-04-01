@@ -136,6 +136,7 @@ public class Block {
             for (int y = 0; y < this.size; y++){
                 System.out.println("Array [" + x + "] [" + y + "] [" + 2 + "] -> " + this.Block[x][y][2].getColors()[0] + ", " + Block[x][y][2].getColors()[1] + ", " + Block[x][y][2].getColors()[2]);
             }
+            
         }
 
     }
