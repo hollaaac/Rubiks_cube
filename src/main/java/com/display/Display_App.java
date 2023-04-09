@@ -159,8 +159,12 @@ public class Display_App extends Application{
         gridPanes[5].setLayoutX(50 + ROWS * (50 + GAP));
         gridPanes[5].setLayoutY(50 + 2 * COLS * (50 + GAP));
 
+        Button inputButton = new Button("Input");
+
         //Scene inputScene = new Scene(inputRoot, 4 * ROWS * (50 + GAP) + 50, 3 * COLS * (50 + GAP) +50);
+        inputRoot.getChildren().add(inputButton);
         Scene inputScene = new Scene(inputRoot, 850, 650);
+        
         // Create help menu scene
         Button backButton = new Button("Back");
         Button updateRandom = new Button("Update randomizer number");
@@ -236,6 +240,7 @@ public class Display_App extends Application{
         Stage stage = new Stage();
         // Create menu key listener and bind to H
         RotateCube rotate = new RotateCube();
+        InputCube inputCube = new InputCube();
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.H) {
                 stage.setScene(menuScene);
@@ -367,6 +372,11 @@ public class Display_App extends Application{
             if(event.getCode() == KeyCode.ESCAPE) {
                 stage.setScene(scene);
             }
+        });
+        inputButton.setOnAction(event -> {
+            System.out.println("inputing cube");
+            inputCube.inputCube(all_cubes, gridPanes);
+            stage.setScene(scene);
         });
         
 
