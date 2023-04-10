@@ -1,5 +1,4 @@
 package com.display;
-
 import java.util.*;
 
 public class Block {
@@ -128,7 +127,6 @@ public class Block {
         //        //System.out.println("Array [" + 0 + "] [" + y + "] [" + z + "] -> " + this.Block[0][y][z].getColors()[0] + ", " + Block[0][y][z].getColors()[1] + ", " + Block[0][y][z].getColors()[2]);
         //    }
         //}
-        System.out.println(arrayHelper);
 
         System.out.println(""); //Space in terminal
 
@@ -136,7 +134,6 @@ public class Block {
             for (int y = 0; y < this.size; y++){
                 System.out.println("Array [" + x + "] [" + y + "] [" + 2 + "] -> " + this.Block[x][y][2].getColors()[0] + ", " + Block[x][y][2].getColors()[1] + ", " + Block[x][y][2].getColors()[2]);
             }
-            
         }
 
     }
@@ -234,7 +231,7 @@ public class Block {
                 
         }
 
-        if(direction == "D'"){ //Bottom (Down) ClockWise
+        if(direction == "D"){ //Bottom (Down) ClockWise
 
             tempCubelet = Block[0][2][0];
             Block[0][2][0] = Block[0][2][2];
@@ -256,7 +253,7 @@ public class Block {
                 
         }
 
-        if(direction == "D"){ //Bottom (Down) Counter-ClockWise
+        if(direction == "D'"){ //Bottom (Down) Counter-ClockWise
 
             tempCubelet = Block[0][2][0];
             Block[0][2][0] = Block[2][2][0];
@@ -278,7 +275,7 @@ public class Block {
                 
         }
 
-        if(direction == "U'"){ //Up (Top) ClockWise
+        if(direction == "U"){ //Up (Top) ClockWise
 
             tempCubelet = Block[0][0][0];
             Block[0][0][0] = Block[0][0][2];
@@ -300,7 +297,7 @@ public class Block {
                 
         }
 
-        if(direction == "U"){ //Up (Top) Counter-ClockWise
+        if(direction == "U'"){ //Up (Top) Counter-ClockWise
 
             tempCubelet = Block[0][0][0];
             Block[0][0][0] = Block[2][0][0];
