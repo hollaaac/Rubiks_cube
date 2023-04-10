@@ -1,7 +1,9 @@
 package com.display;
-import java.util.Random;
 
+import java.util.Random;
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Camera;
 import javafx.scene.Group;
 import javafx.scene.PerspectiveCamera;
@@ -9,7 +11,9 @@ import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
@@ -27,11 +31,22 @@ public class Display_App extends Application{
     public static int z;
     public boolean shiftDown;
     public int i,j,k;
+    public int randomize_Int;
+    public int newValue;
+
+    private static final int ROWS = 3;
+    private static final int COLS = 3;
+    private static final int GAP = 10;
+    private Rectangle selectedRectangle = null;
+
+    
 
     @Override
     public void start(Stage primaryStage){
 
         Block block = new Block(3);
+        randomize_Int = 25;
+        
 
         Group group_center = makeCube_center();
         //Group[] all_cubes = new Group[25];
@@ -98,10 +113,61 @@ public class Display_App extends Application{
         // Create rubik's cube scene and add the group to it
         Scene scene = new Scene(group_center, 500, 500, true, SceneAntialiasing.BALANCED);
         
+        Group inputRoot = new Group();
+        GridPane[] gridPanes = new GridPane[6];
 
+        for (int i = 0; i < 6; i++) {
+            gridPanes[i] = new GridPane();
+            gridPanes[i].setHgap(GAP);
+            gridPanes[i].setVgap(GAP);
+            gridPanes[i].setPadding(new Insets(20));
+            gridPanes[i].setAlignment(Pos.CENTER);
+            inputRoot.getChildren().add(gridPanes[i]);
+        }
 
+        for (int i = 0; i < 6; i++) {
+            for (int row = 0; row < ROWS; row++) {
+                for (int col = 0; col < COLS; col++) {
+                    Rectangle rect = new Rectangle(50, 50, Color.WHITE);
+                    rect.setStroke(Color.BLACK);
+                    rect.setOnMouseEntered(event -> {
+                        selectedRectangle = rect;
+                    });
+                    rect.setOnMouseExited(event -> {
+                        selectedRectangle = null;
+                    });
+                    gridPanes[i].add(rect, col, row);
+                }
+            }
+        }
+        // position the GridPanes
+        gridPanes[0].setLayoutX(50 + ROWS * (50 + GAP));
+        gridPanes[0].setLayoutY(50);
+
+        gridPanes[1].setLayoutX(50);
+        gridPanes[1].setLayoutY(50 + COLS * (50 + GAP));
+
+        gridPanes[2].setLayoutX(50 + ROWS * (50 + GAP));
+        gridPanes[2].setLayoutY(50 + COLS * (50 + GAP));
+
+        gridPanes[3].setLayoutX(50 + 2 * ROWS * (50 + GAP));
+        gridPanes[3].setLayoutY(50 + COLS * (50 + GAP));
+
+        gridPanes[4].setLayoutX(50 + 3 * ROWS * (50 + GAP));
+        gridPanes[4].setLayoutY(50 + COLS * (50 + GAP));
+
+        gridPanes[5].setLayoutX(50 + ROWS * (50 + GAP));
+        gridPanes[5].setLayoutY(50 + 2 * COLS * (50 + GAP));
+
+        Button inputButton = new Button("Input");
+
+        //Scene inputScene = new Scene(inputRoot, 4 * ROWS * (50 + GAP) + 50, 3 * COLS * (50 + GAP) +50);
+        inputRoot.getChildren().add(inputButton);
+        Scene inputScene = new Scene(inputRoot, 850, 650);
+        
         // Create help menu scene
         Button backButton = new Button("Back");
+        Button updateRandom = new Button("Update randomizer number");
         Label title = new Label("Help Menu");
         title.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         Label info1 = new Label("Rotate Red: R");
@@ -111,6 +177,8 @@ public class Display_App extends Application{
         Label info5 = new Label("Rotate Yellow: Y");
         Label info6 = new Label("Rotate Orange: O");
         Label info_main = new Label("Hold shift to reverse rotation insead of always right 90 degrees");
+        Label randomize_Label = new Label("Randomize cube: A");
+        Label randomLabel = new Label("Variable: " + randomize_Int);
         info1.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         info2.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         info3.setFont(Font.font("Arial", FontWeight.BOLD, 16));
@@ -118,12 +186,14 @@ public class Display_App extends Application{
         info5.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         info6.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         info_main.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        randomize_Label.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        Slider slider = new Slider(0, 100, 0);
         VBox menuLayout = new VBox();
         menuLayout.getChildren().add(title);
-        menuLayout.getChildren().addAll(info1, info2, info3, info4, info5, info6, info_main, backButton);
-        Scene menuScene = new Scene(menuLayout, 400, 400);
+        menuLayout.getChildren().addAll(info1, info2, info3, info4, info5, info6, info_main, randomize_Label, slider, randomLabel, updateRandom, backButton);
+        Scene menuScene = new Scene(menuLayout, 500, 500);
 
-
+        
 
         // Add all cubes on x = 1 to the scene
         group_center.getChildren().add(PX_center);
@@ -170,15 +240,18 @@ public class Display_App extends Application{
         Stage stage = new Stage();
         // Create menu key listener and bind to H
         RotateCube rotate = new RotateCube();
+        InputCube inputCube = new InputCube();
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.H) {
                 stage.setScene(menuScene);
             };
+            if (event.getCode() == KeyCode.I) {
+                stage.setScene(inputScene);
+            }
             if (event.getCode() == KeyCode.A) {
                 try {
-                    randomizeCube(25, block, all_cubes);
+                    randomizeCube(randomize_Int, block, all_cubes);
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 block.printBlock();
@@ -267,10 +340,46 @@ public class Display_App extends Application{
                 shiftDown = false;
             }
         });
+        updateRandom.setOnAction(e -> {
+            randomize_Int = (int) slider.getValue();
+        });
+        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            randomize_Int = newValue.intValue();
+        });
         
+        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            randomLabel.setText("Variable: " + newValue.intValue());
+        });
         backButton.setOnAction(event -> {
             stage.setScene(scene);
         });
+        inputScene.setOnKeyPressed(event -> {
+            if(selectedRectangle != null) {
+                if(event.getCode() == KeyCode.R) {
+                    selectedRectangle.setFill(Color.RED);
+                } else if (event.getCode() == KeyCode.G) {
+                    selectedRectangle.setFill(Color.GREEN);
+                } else if (event.getCode() == KeyCode.B) {
+                    selectedRectangle.setFill(Color.BLUE);
+                } else if (event.getCode() == KeyCode.W) {
+                    selectedRectangle.setFill(Color.WHITE);
+                } else if (event.getCode() == KeyCode.O) {
+                    selectedRectangle.setFill(Color.ORANGE);
+                } else if (event.getCode() == KeyCode.Y) {
+                    selectedRectangle.setFill(Color.YELLOW);
+                }
+            }
+            if(event.getCode() == KeyCode.ESCAPE) {
+                stage.setScene(scene);
+            }
+        });
+        inputButton.setOnAction(event -> {
+            System.out.println("inputing cube");
+            inputCube.inputCube(all_cubes, gridPanes);
+            stage.setScene(scene);
+        });
+        
+
         stage.setScene(scene);
         stage.show();
 
@@ -426,7 +535,6 @@ public class Display_App extends Application{
         int faceTurn;
 
         for (int i = 0; i < turns; ++i){
-            Thread.sleep(5);
             faceTurn = rn.nextInt(11);
 
             if(faceTurn == 0){
@@ -512,12 +620,13 @@ public class Display_App extends Application{
                 rotate.rotateCube(all_cubes, Color.YELLOW, -90); 
                 System.out.println("Yellow inverse");  
             }
-
-            //printBlock();
+            Thread.sleep(5);
+            //block.printBlock();
             //System.out.println();
 
         }
     }
+
     
     
     
