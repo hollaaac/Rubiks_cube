@@ -6,7 +6,6 @@ import java.util.List;
 import javafx.scene.Group;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
 public class InputCube {
@@ -19,12 +18,6 @@ public class InputCube {
     private static final short left = 4;
     private static final short front = 5;
     private static final short back = 6;
-    private static final short red = 9;
-    private static final short blue = 9;
-    private static final short green = 9;
-    private static final short orange = 9;
-    private static final short white = 9;
-    private static final short yellow = 9;
     private int red_counter = 0;
     private int blue_counter = 0;
     private int green_counter = 0;
@@ -33,7 +26,6 @@ public class InputCube {
     private int yellow_counter = 0;
 
     public boolean inputCube(Group[] all_cubes, GridPane[] gridPanes){
-        Group[] inputGroup = new Group[9];
         Color[][][] colors = new Color[6][ROWS][COLS];
         List<Color> colorList = new ArrayList<Color>();
         Rectangle rect1;
@@ -90,7 +82,6 @@ public class InputCube {
         Rectangle rect52;
         Rectangle rect53;
         Rectangle rect54;
-        int counter = 0;
         for (int i = 0; i < 6; i++) {
             GridPane gridPane = gridPanes[i];
             for (int row = 0; row < ROWS; row++) {
