@@ -1,9 +1,12 @@
 package com.display;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javafx.scene.Group;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
 public class InputCube {
@@ -16,10 +19,23 @@ public class InputCube {
     private static final short left = 4;
     private static final short front = 5;
     private static final short back = 6;
+    private static final short red = 9;
+    private static final short blue = 9;
+    private static final short green = 9;
+    private static final short orange = 9;
+    private static final short white = 9;
+    private static final short yellow = 9;
+    private int red_counter = 0;
+    private int blue_counter = 0;
+    private int green_counter = 0;
+    private int orange_counter = 0;
+    private int white_counter = 0;
+    private int yellow_counter = 0;
 
-    public void inputCube(Group[] all_cubes, GridPane[] gridPanes){
+    public boolean inputCube(Group[] all_cubes, GridPane[] gridPanes){
         Group[] inputGroup = new Group[9];
         Color[][][] colors = new Color[6][ROWS][COLS];
+        List<Color> colorList = new ArrayList<Color>();
         Rectangle rect1;
         Rectangle rect2;
         Rectangle rect3;
@@ -106,6 +122,16 @@ public class InputCube {
                 rect7.setFill(colors[i][2][0]);
                 rect8.setFill(colors[i][2][1]);
                 rect9.setFill(colors[i][2][2]);
+                colorList.add((Color) rect1.getFill());
+                colorList.add((Color) rect2.getFill()); 
+                colorList.add((Color) rect3.getFill());
+                colorList.add((Color) rect4.getFill());
+                colorList.add((Color) rect5.getFill());
+                colorList.add((Color) rect6.getFill());
+                colorList.add((Color) rect7.getFill());
+                colorList.add((Color) rect8.getFill());
+                colorList.add((Color) rect9.getFill());
+                
                 // This works for white side.                
             } else if (i == 1) {
                 // left side 
@@ -129,6 +155,16 @@ public class InputCube {
                 rect16.setFill(colors[i][2][0]);
                 rect17.setFill(colors[i][2][1]);
                 rect18.setFill(colors[i][2][2]);
+                colorList.add((Color) rect10.getFill());
+                colorList.add((Color) rect11.getFill());
+                colorList.add((Color) rect12.getFill());
+                colorList.add((Color) rect13.getFill());
+                colorList.add((Color) rect14.getFill());
+                colorList.add((Color) rect15.getFill());
+                colorList.add((Color) rect16.getFill());
+                colorList.add((Color) rect17.getFill());
+                colorList.add((Color) rect18.getFill());
+                
 
             } else if (i == 2) {
                 // front side
@@ -152,6 +188,16 @@ public class InputCube {
                 rect25.setFill(colors[i][2][0]);
                 rect26.setFill(colors[i][2][1]);
                 rect27.setFill(colors[i][2][2]);
+                colorList.add((Color) rect19.getFill());
+                colorList.add((Color) rect20.getFill());
+                colorList.add((Color) rect21.getFill());
+                colorList.add((Color) rect22.getFill());
+                colorList.add((Color) rect23.getFill());
+                colorList.add((Color) rect24.getFill());
+                colorList.add((Color) rect25.getFill());
+                colorList.add((Color) rect26.getFill());
+                colorList.add((Color) rect27.getFill());
+                
             } else if (i == 3) {
                 // right side
                 //System.out.println(input_rect.getFill());
@@ -174,6 +220,15 @@ public class InputCube {
                 rect34.setFill(colors[i][2][0]);
                 rect35.setFill(colors[i][2][1]);
                 rect36.setFill(colors[i][2][2]);
+                colorList.add((Color) rect28.getFill());
+                colorList.add((Color) rect29.getFill());
+                colorList.add((Color) rect30.getFill());
+                colorList.add((Color) rect31.getFill());
+                colorList.add((Color) rect32.getFill());
+                colorList.add((Color) rect33.getFill());
+                colorList.add((Color) rect34.getFill());
+                colorList.add((Color) rect35.getFill());
+                colorList.add((Color) rect36.getFill());
             } else if (i == 4) {
                 // back side
                 //System.out.println(input_rect.getFill());
@@ -196,6 +251,15 @@ public class InputCube {
                 rect43.setFill(colors[i][2][0]);
                 rect44.setFill(colors[i][2][1]);
                 rect45.setFill(colors[i][2][2]);
+                colorList.add((Color) rect37.getFill());
+                colorList.add((Color) rect38.getFill());
+                colorList.add((Color) rect39.getFill());
+                colorList.add((Color) rect40.getFill());
+                colorList.add((Color) rect41.getFill());
+                colorList.add((Color) rect42.getFill());
+                colorList.add((Color) rect43.getFill());
+                colorList.add((Color) rect44.getFill());
+                colorList.add((Color) rect45.getFill());
             } else if (i == 5) {
                 // bottom side
                 //System.out.println(input_rect.getFill());
@@ -218,17 +282,30 @@ public class InputCube {
                 rect52.setFill(colors[i][2][0]);
                 rect53.setFill(colors[i][2][1]);
                 rect54.setFill(colors[i][2][2]);
+                colorList.add((Color) rect46.getFill());
+                colorList.add((Color) rect47.getFill());
+                colorList.add((Color) rect48.getFill());
+                colorList.add((Color) rect49.getFill());
+                colorList.add((Color) rect50.getFill());
+                colorList.add((Color) rect51.getFill());
+                colorList.add((Color) rect52.getFill());
+                colorList.add((Color) rect53.getFill());
+                colorList.add((Color) rect54.getFill());
                 
             }
-
-
-
-                    
-                    
-
-
-            
-            
+        
         }
+        red_counter = Collections.frequency(colorList, Color.RED);
+        blue_counter = Collections.frequency(colorList, Color.BLUE);
+        green_counter = Collections.frequency(colorList, Color.GREEN);
+        orange_counter = Collections.frequency(colorList, Color.ORANGE);
+        white_counter = Collections.frequency(colorList, Color.WHITE);
+        yellow_counter = Collections.frequency(colorList, Color.YELLOW);
+
+        
+        if (red_counter == 9 && blue_counter == 9 && green_counter == 9 && orange_counter == 9 && white_counter == 9 && yellow_counter == 9) {
+            return true;
+        } else { return false; }
+        
     }
 }

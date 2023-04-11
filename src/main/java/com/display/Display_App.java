@@ -33,6 +33,7 @@ public class Display_App extends Application{
     public int i,j,k;
     public int randomize_Int;
     public int newValue;
+    public boolean validCube = false;
 
     private static final int ROWS = 3;
     private static final int COLS = 3;
@@ -375,8 +376,12 @@ public class Display_App extends Application{
         });
         inputButton.setOnAction(event -> {
             System.out.println("inputing cube");
-            inputCube.inputCube(all_cubes, gridPanes);
-            stage.setScene(scene);
+            validCube = inputCube.inputCube(all_cubes, gridPanes);
+            if (validCube == true) {
+                stage.setScene(scene);
+            } else {
+                System.out.println("Invalid cube");
+            }
         });
         
 
