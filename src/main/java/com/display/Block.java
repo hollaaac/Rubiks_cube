@@ -118,8 +118,8 @@ public class Block {
     //Helper function that changes based on developer needs
     void printerHelp(){
 
-        char [][] arrayHelper = new char[9][3];
-
+        //char [][] arrayHelper = new char[9][3];
+        //
         //for (int y = 0; y < this.size; y++){
         //    for (int z = 0; z < this.size; z++){
         //        System.out.println("Array [" + 2 + "] [" + y + "] [" + z + "] -> " + this.Block[2][y][z].getColors()[0] + ", " + Block[2][y][z].getColors()[1] + ", " + Block[2][y][z].getColors()[2]);
