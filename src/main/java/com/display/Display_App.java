@@ -129,15 +129,44 @@ public class Display_App extends Application{
         for (int i = 0; i < 6; i++) {
             for (int row = 0; row < ROWS; row++) {
                 for (int col = 0; col < COLS; col++) {
-                    Rectangle rect = new Rectangle(50, 50, Color.WHITE);
-                    rect.setStroke(Color.BLACK);
-                    rect.setOnMouseEntered(event -> {
+                    if (i == 0 && row == 1 && col == 1){
+                        Rectangle red_center_rect = new Rectangle(50, 50, Color.WHITE);
+                        red_center_rect.setStroke(Color.BLACK);
+                        gridPanes[i].add(red_center_rect, col, row);
+                    } else if (i == 1 && row == 1 && col == 1) {
+                        Rectangle red_center_rect = new Rectangle(50, 50, Color.GREEN);
+                        red_center_rect.setStroke(Color.BLACK);
+                        gridPanes[i].add(red_center_rect, col, row);
+                    } else if (i == 2 && row == 1 && col == 1) {
+                        Rectangle red_center_rect = new Rectangle(50, 50, Color.RED);
+                        red_center_rect.setStroke(Color.BLACK);
+                        gridPanes[i].add(red_center_rect, col, row);
+                    } else if (i == 3 && row == 1 && col == 1) {
+                        Rectangle red_center_rect = new Rectangle(50, 50, Color.BLUE);
+                        red_center_rect.setStroke(Color.BLACK);
+                        gridPanes[i].add(red_center_rect, col, row);
+                    } else if (i == 4 && row == 1 && col == 1) {
+                        Rectangle red_center_rect = new Rectangle(50, 50, Color.ORANGE);
+                        red_center_rect.setStroke(Color.BLACK);
+                        gridPanes[i].add(red_center_rect, col, row);
+                    } else if (i == 5 && row == 1 && col == 1) {
+                        Rectangle red_center_rect = new Rectangle(50, 50, Color.YELLOW);
+                        red_center_rect.setStroke(Color.BLACK);
+                        gridPanes[i].add(red_center_rect, col, row);
+                    } 
+                    else {
+                        Rectangle rect = new Rectangle(50, 50, Color.WHITE);
+                        rect.setStroke(Color.BLACK);
+                        rect.setOnMouseEntered(event -> {
                         selectedRectangle = rect;
-                    });
-                    rect.setOnMouseExited(event -> {
+                        });
+                        rect.setOnMouseExited(event -> {
                         selectedRectangle = null;
-                    });
-                    gridPanes[i].add(rect, col, row);
+                        });
+
+                        gridPanes[i].add(rect, col, row);
+                    }
+                    
                 }
             }
         }

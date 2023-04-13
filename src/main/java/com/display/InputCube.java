@@ -26,6 +26,14 @@ public class InputCube {
     private int yellow_counter = 0;
 
     public boolean inputCube(Group[] all_cubes, GridPane[] gridPanes){
+
+        // Red = Front
+        // Orange = Back
+        // Green = Left
+        // Blue = Right
+        // White = top
+        // Yellow = Bottom
+
         Color[][][] colors = new Color[6][ROWS][COLS];
         List<Color> colorList = new ArrayList<Color>();
         Rectangle rect1;
