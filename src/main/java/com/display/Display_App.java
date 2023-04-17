@@ -39,6 +39,7 @@ public class Display_App extends Application{
     private static final int COLS = 3;
     private static final int GAP = 10;
     private Rectangle selectedRectangle = null;
+    private boolean inputCalled = false;
 
     
 
@@ -288,14 +289,26 @@ public class Display_App extends Application{
             }
 
             if (event.getCode() == KeyCode.R && shiftDown == false) {
-                rotate.rotateCube(all_cubes, Color.RED, 90);
-                block.turnNotModular("F");
-                block.printBlock();
+                if (inputCalled == false) {
+                    rotate.rotateCube(all_cubes, Color.RED, 90);
+                    block.turnNotModular("F");
+                    block.printBlock();
+                } else {
+                    rotate.rotateCube(all_cubes, Color.RED, 90);
+                    block.turnNotModular("F'");
+                    block.printBlock();
+                }
             };
             if (event.getCode() == KeyCode.G && shiftDown == false) {
-                rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                block.turnNotModular("L");
-                block.printBlock();
+                if (inputCalled == false) {
+                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
+                    block.turnNotModular("L");
+                    block.printBlock();
+                } else {
+                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
+                    block.turnNotModular("L'");
+                    block.printBlock();
+                }
             };
             if (event.getCode() == KeyCode.B && shiftDown == false) {
                 rotate.rotateCube(all_cubes, Color.BLUE, 90);

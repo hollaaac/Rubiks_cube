@@ -24,6 +24,7 @@ public class InputCube {
     private int orange_counter = 0;
     private int white_counter = 0;
     private int yellow_counter = 0;
+    private List<Color> colorList = new ArrayList<Color>();
 
     public boolean inputCube(Group[] all_cubes, GridPane[] gridPanes){
 
@@ -35,7 +36,6 @@ public class InputCube {
         // Yellow = Bottom
 
         Color[][][] colors = new Color[6][ROWS][COLS];
-        List<Color> colorList = new ArrayList<Color>();
         Rectangle rect1;
         Rectangle rect2;
         Rectangle rect3;
@@ -301,10 +301,41 @@ public class InputCube {
         white_counter = Collections.frequency(colorList, Color.WHITE);
         yellow_counter = Collections.frequency(colorList, Color.YELLOW);
 
+        String InputCube_String = BlockToString();
+        Block inputBlock = new Block(3);
+        inputBlock.StringtoBlock(InputCube_String);
+
         
         if (red_counter == 9 && blue_counter == 9 && green_counter == 9 && orange_counter == 9 && white_counter == 9 && yellow_counter == 9) {
             return true;
         } else { return false; }
         
+    }
+    private String BlockToString() {
+        String BlockString = "";
+        for (Color colorI : colorList) {
+            if (colorI == Color.WHITE){
+                BlockString = BlockString + "W";
+            }
+            else if (colorI == Color.GREEN) {
+                BlockString = BlockString + "G";
+            }
+            else if (colorI == Color.RED) {
+                BlockString = BlockString + "R";
+            }
+            else if (colorI == Color.BLUE) {
+                BlockString = BlockString + "B";
+            }
+            else if (colorI == Color.ORANGE) {
+                BlockString = BlockString + "O";
+            }
+            else if (colorI == Color.YELLOW) {
+                BlockString = BlockString + "Y";
+            }
+            else {
+                System.out.println("Invalid color during input!!");
+            }            
+        }
+        return BlockString;
     }
 }
