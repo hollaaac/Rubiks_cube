@@ -669,159 +669,87 @@ public class Display_App extends Application{
             faceTurn = rn.nextInt(11);
 
             if(faceTurn == 0){
-                if (inputCalled) {
-                    block.turnNotModular("F");
-                    rotate.rotateCube(all_cubes, Color.RED, 90);
-                    rotate.rotateCube(all_cubes, Color.RED, 90);
-                    rotate.rotateCube(all_cubes, Color.RED, 90);
-                } else {
-                    block.turnNotModular("F");
-                    rotate.rotateCube(all_cubes, Color.RED, 90);
-                }
+                block.turnNotModular("F");
+                rotate.rotateCube(all_cubes, Color.RED, 90);
                 System.out.println("Red");
             }
 
             if(faceTurn == 1){
-                if (inputCalled) {
-                    block.turnNotModular("F'");
-                    rotate.rotateCube(all_cubes, Color.RED, 90);
-                } else {
-                    block.turnNotModular("F'");
-                    rotate.rotateCube(all_cubes, Color.RED, -90);
-                    rotate.rotateCube(all_cubes, Color.RED, -90);
-                    rotate.rotateCube(all_cubes, Color.RED, -90);
-                }
+                block.turnNotModular("F'");
+                rotate.rotateCube(all_cubes, Color.RED, -90);
+                rotate.rotateCube(all_cubes, Color.RED, -90);
+                rotate.rotateCube(all_cubes, Color.RED, -90);
                 System.out.println("Red inverse");  
             }
 
             if(faceTurn == 2) {
-                if (inputCalled) {
-                    block.turnNotModular("B");
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                } else {
-                    block.turnNotModular("B");
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                }
+                block.turnNotModular("B");
+                rotate.rotateCube(all_cubes, Color.ORANGE, -90);
                 System.out.println("Orange"); 
             }
 
             if(faceTurn == 3){
-                if (inputCalled) {
-                    block.turnNotModular("B'");
-                    rotate.rotateCube(all_cubes, Color.ORANGE, 90);
-                } else {
-                    block.turnNotModular("B'");
-                    rotate.rotateCube(all_cubes, Color.ORANGE, 90);
-                    rotate.rotateCube(all_cubes, Color.ORANGE, 90);
-                    rotate.rotateCube(all_cubes, Color.ORANGE, 90);
-                }
+                block.turnNotModular("B'");
+                rotate.rotateCube(all_cubes, Color.ORANGE, 90);
+                rotate.rotateCube(all_cubes, Color.ORANGE, 90);
+                rotate.rotateCube(all_cubes, Color.ORANGE, 90);
                 System.out.println("Orange inverse");  
             }
 
             if(faceTurn == 4){
-                if (inputCalled) {
-                    block.turnNotModular("R");
-                    rotate.rotateCube(all_cubes, Color.BLUE, 90);
-                    rotate.rotateCube(all_cubes, Color.BLUE, 90);
-                    rotate.rotateCube(all_cubes, Color.BLUE, 90);
-                    
-                } else {
-                    block.turnNotModular("R");
-                    rotate.rotateCube(all_cubes, Color.BLUE, 90);
-                }
+                block.turnNotModular("R");
+                rotate.rotateCube(all_cubes, Color.BLUE, 90);
                 System.out.println("Blue");  
             }
 
             if(faceTurn == 5){
-                if (inputCalled) {
-                    block.turnNotModular("R'");
-                    rotate.rotateCube(all_cubes, Color.BLUE, -90);
-                } else {
-                    block.turnNotModular("R'");
-                    rotate.rotateCube(all_cubes, Color.BLUE, -90);
-                    rotate.rotateCube(all_cubes, Color.BLUE, -90);
-                    rotate.rotateCube(all_cubes, Color.BLUE, -90);
-                }
+                block.turnNotModular("R'");
+                rotate.rotateCube(all_cubes, Color.BLUE, -90);
+                rotate.rotateCube(all_cubes, Color.BLUE, -90);
+                rotate.rotateCube(all_cubes, Color.BLUE, -90);
                 System.out.println("Blue inverse"); 
             }
 
             if(faceTurn == 6){
-                if (inputCalled) {
-                    block.turnNotModular("L");
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                } else {
-                    block.turnNotModular("L");
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                }
+                block.turnNotModular("L");
+                rotate.rotateCube(all_cubes, Color.GREEN, -90);
                 System.out.println("Green"); 
             }
 
             if(faceTurn == 7){
-                if (inputCalled) {
-                    block.turnNotModular("L'");
-                    rotate.rotateCube(all_cubes, Color.GREEN, 90);
-                } else {
-                    block.turnNotModular("L'");
-                    rotate.rotateCube(all_cubes, Color.GREEN, 90);
-                    rotate.rotateCube(all_cubes, Color.GREEN, 90);
-                    rotate.rotateCube(all_cubes, Color.GREEN, 90);
-                }
+                block.turnNotModular("L'");
+                rotate.rotateCube(all_cubes, Color.GREEN, 90);
+                rotate.rotateCube(all_cubes, Color.GREEN, 90);
+                rotate.rotateCube(all_cubes, Color.GREEN, 90);
                 System.out.println("Green inverse");  
             }
             
             if(faceTurn == 8){
-                if (inputCalled) {
-                    block.turnNotModular("U");
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                } else {
-                    block.turnNotModular("U");
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                }
+                block.turnNotModular("U");
+                rotate.rotateCube(all_cubes, Color.WHITE, -90);
+
                 System.out.println("White inverse");
             }
 
             if(faceTurn == 9){
-                if (inputCalled) {
-                    block.turnNotModular("U'");
-                    rotate.rotateCube(all_cubes, Color.WHITE, 90);
-                    rotate.rotateCube(all_cubes, Color.WHITE, 90);
-                    rotate.rotateCube(all_cubes, Color.WHITE, 90);
-                } else {
-                    block.turnNotModular("U'");
-                    rotate.rotateCube(all_cubes, Color.WHITE, 90); 
-                }
+                block.turnNotModular("U'");
+                rotate.rotateCube(all_cubes, Color.WHITE, 90);
+                rotate.rotateCube(all_cubes, Color.WHITE, 90); 
+                rotate.rotateCube(all_cubes, Color.WHITE, 90);  
                 System.out.println("White");
             }
 
             if(faceTurn == 10){
-                if (inputCalled) {
-                    block.turnNotModular("D");
-                    rotate.rotateCube(all_cubes, Color.YELLOW, 90);
-                    rotate.rotateCube(all_cubes, Color.YELLOW, 90);
-                    rotate.rotateCube(all_cubes, Color.YELLOW, 90);
-                } else {
-                    block.turnNotModular("D");
-                    rotate.rotateCube(all_cubes, Color.YELLOW, 90);
-                }
+                block.turnNotModular("D");
+                rotate.rotateCube(all_cubes, Color.YELLOW, 90);
                 System.out.println("Yellow"); 
             }
 
             if(faceTurn == 11){
-                if (inputCalled) {
-                    block.turnNotModular("D'");
-                    rotate.rotateCube(all_cubes, Color.YELLOW, -90);
-                } else {
-                    block.turnNotModular("D'");
-                    rotate.rotateCube(all_cubes, Color.YELLOW, -90);
-                    rotate.rotateCube(all_cubes, Color.YELLOW, -90);
-                    rotate.rotateCube(all_cubes, Color.YELLOW, -90); 
-                }
+                block.turnNotModular("D'");
+                rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+                rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+                rotate.rotateCube(all_cubes, Color.YELLOW, -90); 
                 System.out.println("Yellow inverse");  
             }
             Thread.sleep(5);
