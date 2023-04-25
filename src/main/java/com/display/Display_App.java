@@ -350,11 +350,11 @@ public class Display_App extends Application{
             if (event.getCode() == KeyCode.W && shiftDown == false) {
                 if (inputCalled == false) {
                     rotate.rotateCube(all_cubes, Color.WHITE, -90);
+                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
+                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
                     block.turnNotModular("U'");
                     block.printBlock();
                 } else {
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
                     rotate.rotateCube(all_cubes, Color.WHITE, -90);
                     block.turnNotModular("U'");
                     block.printBlock();
@@ -433,8 +433,6 @@ public class Display_App extends Application{
             }
             else if (shiftDown && event.getCode() == KeyCode.W) {
                 if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
                     rotate.rotateCube(all_cubes, Color.WHITE, -90);
                     block.turnNotModular("U");
                     block.printBlock();
@@ -607,7 +605,7 @@ public class Display_App extends Application{
         group.getTransforms().add(new Translate(x, y, z));
         return group;
     }
-    
+    // Creating top face of cube
     public static Rectangle createTop() {
         Rectangle top = new Rectangle(50, 50);
         top.setFill(Color.WHITE);
@@ -616,6 +614,7 @@ public class Display_App extends Application{
         top.getTransforms().add(new Translate(-25,-25,26));
         return top;
     }
+    // Creating bottom face of cube
     public static Rectangle createBottom() {
         Rectangle bottom = new Rectangle(50, 50);
         bottom.setFill(Color.YELLOW);
@@ -624,31 +623,35 @@ public class Display_App extends Application{
         bottom.getTransforms().add(new Translate(-25,-25,-26));
         return bottom;
     }
+    // Creating right face of cube
     public static Rectangle createFront() {
         Rectangle front = new Rectangle(50, 50);
-        front.setFill(Color.GREEN);
+        front.setFill(Color.BLUE);
         front.setOpacity(1);
         front.getTransforms().add(new Translate(-25,-25,26));
         return front;
     }
+    // Creating left face of cube
     public static Rectangle createBack() {
         Rectangle back = new Rectangle(50, 50);
-        back.setFill(Color.BLUE);
+        back.setFill(Color.GREEN);
         back.setOpacity(1);
         back.getTransforms().add(new Translate(-25,-25,-26));
         return back;
     }
+    // Creating front face of cube
     public static Rectangle createLeft() {
         Rectangle left = new Rectangle(50, 50);
-        left.setFill(Color.ORANGE);
+        left.setFill(Color.RED);
         left.setOpacity(1);
         left.getTransforms().add(new Rotate(90, Rotate.Y_AXIS));
         left.getTransforms().add(new Translate(-25,-25,26));
         return left;
     }
+    // Creating back face of cube
     public static Rectangle createRight() {
         Rectangle right = new Rectangle(50, 50);
-        right.setFill(Color.RED);
+        right.setFill(Color.ORANGE);
         right.setOpacity(1);
         right.getTransforms().add(new Rotate(90, Rotate.Y_AXIS));
         right.getTransforms().add(new Translate(-25,-25,-26));
