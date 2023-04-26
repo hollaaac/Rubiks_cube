@@ -296,82 +296,34 @@ public class Display_App extends Application{
             }
 
             if (event.getCode() == KeyCode.R && shiftDown == false) {
-                if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.RED, 90);
-                    block.turnNotModular("F");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.RED, 90);
-                    rotate.rotateCube(all_cubes, Color.RED, 90);
-                    rotate.rotateCube(all_cubes, Color.RED, 90);
-                    block.turnNotModular("F");
-                    block.printBlock();
-                }
+                rotateFront(all_cubes, "F");
+                block.turnNotModular("F");
+                block.printBlock();
             };
             if (event.getCode() == KeyCode.G && shiftDown == false) {
-                if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                    block.turnNotModular("L");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                    block.turnNotModular("L");
-                    block.printBlock();
-                }
+                rotateLeft(all_cubes, "L");
+                block.turnNotModular("L");
+                block.printBlock();
             };
             if (event.getCode() == KeyCode.B && shiftDown == false) {
-                if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.BLUE, 90);
-                    block.turnNotModular("R");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.BLUE, 90);
-                    rotate.rotateCube(all_cubes, Color.BLUE, 90);
-                    rotate.rotateCube(all_cubes, Color.BLUE, 90);
-                    block.turnNotModular("R");
-                    block.printBlock();
-                }
+                rotateRight(all_cubes, "R");
+                block.turnNotModular("R");
+                block.printBlock();
             };
             if (event.getCode() == KeyCode.Y && shiftDown == false) {
-                if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.YELLOW, 90);
-                    block.turnNotModular("D");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.YELLOW, 90);
-                    rotate.rotateCube(all_cubes, Color.YELLOW, 90);
-                    rotate.rotateCube(all_cubes, Color.YELLOW, 90);
-                    block.turnNotModular("D");
-                    block.printBlock();
-                }
+                rotateBottom(all_cubes, "D");
+                block.turnNotModular("D");
+                block.printBlock();
             };
             if (event.getCode() == KeyCode.W && shiftDown == false) {
-                if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                    block.turnNotModular("U'");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                    block.turnNotModular("U'");
-                    block.printBlock();
-                }
+                rotateTop(all_cubes, "U'");
+                block.turnNotModular("U'");
+                block.printBlock();
             };
             if (event.getCode() == KeyCode.O && shiftDown == false) {
-                if (inputCalled == false){
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                    block.turnNotModular("B");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                    block.turnNotModular("B");
-                    block.printBlock();
-                }
+                rotateBack(all_cubes, "B");
+                block.turnNotModular("B");
+                block.printBlock();
             };
 
 
@@ -379,81 +331,34 @@ public class Display_App extends Application{
                 shiftDown = true;
             }
             else if (shiftDown && event.getCode() == KeyCode.R) {
-                if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.RED, -90);
-                    rotate.rotateCube(all_cubes, Color.RED, -90);
-                    rotate.rotateCube(all_cubes, Color.RED, -90);
-                    block.turnNotModular("F'");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.RED, -90);
-                    block.turnNotModular("F'");
-                    block.printBlock();
-                }
-
+                rotateFront(all_cubes, "F'");
+                block.turnNotModular("F'");
+                block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.G) {
-                if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                    block.turnNotModular("L'");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.GREEN, -90);
-                    block.turnNotModular("L'");
-                    block.printBlock();
-                }
+                rotateLeft(all_cubes, "L'");
+                block.turnNotModular("L'");
+                block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.B) {
-                if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.BLUE, -90);
-                    rotate.rotateCube(all_cubes, Color.BLUE, -90);
-                    rotate.rotateCube(all_cubes, Color.BLUE, -90);
-                    block.turnNotModular("R'");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.BLUE, -90);
-                    block.turnNotModular("R'");
-                    block.printBlock();
-                }
+                rotateRight(all_cubes, "R'");
+                block.turnNotModular("R'");
+                block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.Y) {
-                if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.YELLOW, -90);
-                    rotate.rotateCube(all_cubes, Color.YELLOW, -90);
-                    rotate.rotateCube(all_cubes, Color.YELLOW, -90);
-                    block.turnNotModular("D'");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.YELLOW, -90);
-                    block.turnNotModular("D'");
-                    block.printBlock();
-                }
+                rotateBottom(all_cubes, "D'");
+                block.turnNotModular("D'");
+                block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.W) {
-                if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                    block.turnNotModular("U");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.WHITE, -90);
-                    block.turnNotModular("U");
-                    block.printBlock();
-                }
+                rotateTop(all_cubes, "U");
+                block.turnNotModular("U");
+                block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.O) {
-                if (inputCalled == false) {
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                    block.turnNotModular("B'");
-                    block.printBlock();
-                } else {
-                    rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-                    block.turnNotModular("B'");
-                    block.printBlock();
-                }
+                rotateBack(all_cubes, "B'");
+                block.turnNotModular("B'");
+                block.printBlock();
             }
         });
         scene.setOnKeyReleased(event -> {
@@ -756,6 +661,84 @@ public class Display_App extends Application{
             //block.printBlock();
             //System.out.println();
 
+        }
+    }
+    public void rotateFront(Group[] all_cubes, String direction) {
+        RotateCube rotate = new RotateCube();
+        if (direction == "F") {
+            // Front Clockwise
+            rotate.rotateCube(all_cubes, Color.RED, -90);
+        }
+        if (direction == "F'") {
+            // Front Counter-Clockwise
+            rotate.rotateCube(all_cubes, Color.RED, -90);
+            rotate.rotateCube(all_cubes, Color.RED, -90);
+            rotate.rotateCube(all_cubes, Color.RED, -90);
+        }
+    }
+    public void rotateRight(Group[] all_cubes, String direction) {
+        RotateCube rotate = new RotateCube();
+        if(direction == "R") {
+            // Front Clockwise
+            rotate.rotateCube(all_cubes, Color.BLUE, -90);
+        }
+        if (direction == "R'") {
+            // Front Counter-Clockwise
+            rotate.rotateCube(all_cubes, Color.BLUE, -90);
+            rotate.rotateCube(all_cubes, Color.BLUE, -90);
+            rotate.rotateCube(all_cubes, Color.BLUE, -90);
+        }
+    }
+    public void rotateLeft(Group[] all_cubes, String direction) {
+        RotateCube rotate = new RotateCube();
+        if(direction == "L") {
+            // Front Clockwise
+            rotate.rotateCube(all_cubes, Color.GREEN, -90);
+        }
+        if (direction == "L'") {
+            // Front Counter-Clockwise
+            rotate.rotateCube(all_cubes, Color.GREEN, -90);
+            rotate.rotateCube(all_cubes, Color.GREEN, -90);
+            rotate.rotateCube(all_cubes, Color.GREEN, -90);
+        }
+    }
+    public void rotateBack(Group[] all_cubes, String direction) {
+        RotateCube rotate = new RotateCube();
+        if(direction == "B") {
+            // Front Clockwise
+            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
+        }
+        if (direction == "B'") {
+            // Front Counter-Clockwise
+            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
+            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
+            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
+        }
+    }
+    public void rotateTop(Group[] all_cubes, String direction) {
+        RotateCube rotate = new RotateCube();
+        if(direction == "U") {
+            // Front Clockwise
+            rotate.rotateCube(all_cubes, Color.WHITE, -90);
+        }
+        if (direction == "U'") {
+            // Front Counter-Clockwise
+            rotate.rotateCube(all_cubes, Color.WHITE, -90);
+            rotate.rotateCube(all_cubes, Color.WHITE, -90);
+            rotate.rotateCube(all_cubes, Color.WHITE, -90);
+        }
+    }
+    public void rotateBottom(Group[] all_cubes, String direction) {
+        RotateCube rotate = new RotateCube();
+        if(direction == "D'") {
+            // Front Clockwise
+            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+        }
+        if (direction == "D") {
+            // Front Counter-Clockwise
+            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
         }
     }
 
