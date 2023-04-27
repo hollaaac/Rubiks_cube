@@ -34,6 +34,7 @@ public class Display_App extends Application{
     public int randomize_Int;
     public int newValue;
     public boolean validCube = false;
+    public Group[] all_cubes = new Group[26];
 
     private static final int ROWS = 3;
     private static final int COLS = 3;
@@ -84,7 +85,6 @@ public class Display_App extends Application{
         Group NX_PY_NZ = makeCube(-1, 1, -1);
         Group NX_NY_PZ = makeCube(-1, -1, 1);
 
-        Group[] all_cubes = new Group[26];
         all_cubes[0] = PX_center;
         all_cubes[1] = PX_PY_PZ;
         all_cubes[2] = PX_ZY_PZ;
@@ -296,32 +296,32 @@ public class Display_App extends Application{
             }
 
             if (event.getCode() == KeyCode.R && shiftDown == false) {
-                rotateFront(all_cubes, "F");
+                rotateDisplay("F");
                 block.turnNotModular("F");
                 block.printBlock();
             };
             if (event.getCode() == KeyCode.G && shiftDown == false) {
-                rotateLeft(all_cubes, "L");
+                rotateDisplay("L");
                 block.turnNotModular("L");
                 block.printBlock();
             };
             if (event.getCode() == KeyCode.B && shiftDown == false) {
-                rotateRight(all_cubes, "R");
+                rotateDisplay("R");
                 block.turnNotModular("R");
                 block.printBlock();
             };
             if (event.getCode() == KeyCode.Y && shiftDown == false) {
-                rotateBottom(all_cubes, "D");
+                rotateDisplay("D");
                 block.turnNotModular("D");
                 block.printBlock();
             };
             if (event.getCode() == KeyCode.W && shiftDown == false) {
-                rotateTop(all_cubes, "U'");
+                rotateDisplay("U'");
                 block.turnNotModular("U'");
                 block.printBlock();
             };
             if (event.getCode() == KeyCode.O && shiftDown == false) {
-                rotateBack(all_cubes, "B");
+                rotateDisplay("B");
                 block.turnNotModular("B");
                 block.printBlock();
             };
@@ -331,32 +331,32 @@ public class Display_App extends Application{
                 shiftDown = true;
             }
             else if (shiftDown && event.getCode() == KeyCode.R) {
-                rotateFront(all_cubes, "F'");
+                rotateDisplay("F'");
                 block.turnNotModular("F'");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.G) {
-                rotateLeft(all_cubes, "L'");
+                rotateDisplay("L'");
                 block.turnNotModular("L'");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.B) {
-                rotateRight(all_cubes, "R'");
+                rotateDisplay("R'");
                 block.turnNotModular("R'");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.Y) {
-                rotateBottom(all_cubes, "D'");
+                rotateDisplay("D'");
                 block.turnNotModular("D'");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.W) {
-                rotateTop(all_cubes, "U");
+                rotateDisplay("U");
                 block.turnNotModular("U");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.O) {
-                rotateBack(all_cubes, "B'");
+                rotateDisplay("B'");
                 block.turnNotModular("B'");
                 block.printBlock();
             }
@@ -663,60 +663,18 @@ public class Display_App extends Application{
 
         }
     }
-    public void rotateFront(Group[] all_cubes, String direction) {
+    public void rotateDisplay(String direction) {
         RotateCube rotate = new RotateCube();
-        if (direction == "F") {
+        if (direction == "D") {
             // Front Clockwise
-            rotate.rotateCube(all_cubes, Color.RED, -90);
+            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
         }
-        if (direction == "F'") {
+        if (direction == "D'") {
             // Front Counter-Clockwise
-            rotate.rotateCube(all_cubes, Color.RED, -90);
-            rotate.rotateCube(all_cubes, Color.RED, -90);
-            rotate.rotateCube(all_cubes, Color.RED, -90);
+            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
         }
-    }
-    public void rotateRight(Group[] all_cubes, String direction) {
-        RotateCube rotate = new RotateCube();
-        if(direction == "R") {
-            // Front Clockwise
-            rotate.rotateCube(all_cubes, Color.BLUE, -90);
-        }
-        if (direction == "R'") {
-            // Front Counter-Clockwise
-            rotate.rotateCube(all_cubes, Color.BLUE, -90);
-            rotate.rotateCube(all_cubes, Color.BLUE, -90);
-            rotate.rotateCube(all_cubes, Color.BLUE, -90);
-        }
-    }
-    public void rotateLeft(Group[] all_cubes, String direction) {
-        RotateCube rotate = new RotateCube();
-        if(direction == "L") {
-            // Front Clockwise
-            rotate.rotateCube(all_cubes, Color.GREEN, -90);
-        }
-        if (direction == "L'") {
-            // Front Counter-Clockwise
-            rotate.rotateCube(all_cubes, Color.GREEN, -90);
-            rotate.rotateCube(all_cubes, Color.GREEN, -90);
-            rotate.rotateCube(all_cubes, Color.GREEN, -90);
-        }
-    }
-    public void rotateBack(Group[] all_cubes, String direction) {
-        RotateCube rotate = new RotateCube();
-        if(direction == "B") {
-            // Front Clockwise
-            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-        }
-        if (direction == "B'") {
-            // Front Counter-Clockwise
-            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
-        }
-    }
-    public void rotateTop(Group[] all_cubes, String direction) {
-        RotateCube rotate = new RotateCube();
         if(direction == "U") {
             // Front Clockwise
             rotate.rotateCube(all_cubes, Color.WHITE, -90);
@@ -727,18 +685,45 @@ public class Display_App extends Application{
             rotate.rotateCube(all_cubes, Color.WHITE, -90);
             rotate.rotateCube(all_cubes, Color.WHITE, -90);
         }
-    }
-    public void rotateBottom(Group[] all_cubes, String direction) {
-        RotateCube rotate = new RotateCube();
-        if(direction == "D'") {
+        if(direction == "B") {
             // Front Clockwise
-            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
         }
-        if (direction == "D") {
+        if (direction == "B'") {
             // Front Counter-Clockwise
-            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
-            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
-            rotate.rotateCube(all_cubes, Color.YELLOW, -90);
+            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
+            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
+            rotate.rotateCube(all_cubes, Color.ORANGE, -90);
+        }
+        if(direction == "L") {
+            // Front Clockwise
+            rotate.rotateCube(all_cubes, Color.GREEN, -90);
+        }
+        if (direction == "L'") {
+            // Front Counter-Clockwise
+            rotate.rotateCube(all_cubes, Color.GREEN, -90);
+            rotate.rotateCube(all_cubes, Color.GREEN, -90);
+            rotate.rotateCube(all_cubes, Color.GREEN, -90);
+        }
+        if(direction == "R") {
+            // Front Clockwise
+            rotate.rotateCube(all_cubes, Color.BLUE, -90);
+        }
+        if (direction == "R'") {
+            // Front Counter-Clockwise
+            rotate.rotateCube(all_cubes, Color.BLUE, -90);
+            rotate.rotateCube(all_cubes, Color.BLUE, -90);
+            rotate.rotateCube(all_cubes, Color.BLUE, -90);
+        }
+        if (direction == "F") {
+            // Front Clockwise
+            rotate.rotateCube(all_cubes, Color.RED, -90);
+        }
+        if (direction == "F'") {
+            // Front Counter-Clockwise
+            rotate.rotateCube(all_cubes, Color.RED, -90);
+            rotate.rotateCube(all_cubes, Color.RED, -90);
+            rotate.rotateCube(all_cubes, Color.RED, -90);
         }
     }
 
