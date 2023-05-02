@@ -413,7 +413,7 @@ public class Display_App extends Application{
         });
         inputButton.setOnAction(event -> {
             System.out.println("inputing cube");
-            validCube = inputCube.inputCube(all_cubes, gridPanes);
+            validCube = inputCube.inputCube(all_cubes, gridPanes, block);
             if (validCube == true) {
                 stage.setScene(scene);
                 inputCalled = true;

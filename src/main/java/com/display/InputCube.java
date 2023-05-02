@@ -26,7 +26,7 @@ public class InputCube {
     private int yellow_counter = 0;
     private List<Color> colorList = new ArrayList<Color>();
 
-    public boolean inputCube(Group[] all_cubes, GridPane[] gridPanes){
+    public boolean inputCube(Group[] all_cubes, GridPane[] gridPanes, Block block){
 
         // Red = Front
         // Orange = Back
@@ -307,6 +307,7 @@ public class InputCube {
 
         
         if (red_counter == 9 && blue_counter == 9 && green_counter == 9 && orange_counter == 9 && white_counter == 9 && yellow_counter == 9) {
+            block.updateCube(colors);
             return true;
         } else { return false; }
         
@@ -337,5 +338,69 @@ public class InputCube {
             }            
         }
         return BlockString;
+    }
+    public GridPane[] initColors(Color[][][] colors){
+        GridPane[] gridPanes = new GridPane[6];
+        colors[0][0][0] = Color.WHITE;
+        colors[0][0][1] = Color.WHITE;
+        colors[0][0][2] = Color.WHITE;
+        colors[0][1][0] = Color.WHITE;
+        colors[0][1][1] = Color.WHITE;
+        colors[0][1][2] = Color.WHITE;
+        colors[0][2][0] = Color.WHITE;
+        colors[0][2][1] = Color.WHITE;
+        colors[0][2][1] = Color.WHITE;
+
+        colors[1][0][0] = Color.GREEN;
+        colors[1][0][1] = Color.GREEN;
+        colors[1][0][2] = Color.GREEN;
+        colors[1][1][0] = Color.GREEN;
+        colors[1][1][1] = Color.GREEN;
+        colors[1][1][2] = Color.GREEN;
+        colors[1][2][0] = Color.GREEN;
+        colors[1][2][1] = Color.GREEN;
+        colors[1][2][2] = Color.GREEN;
+
+        colors[2][0][0] = Color.RED;
+        colors[2][0][1] = Color.RED;
+        colors[2][0][2] = Color.RED;
+        colors[2][1][0] = Color.RED;
+        colors[2][1][1] = Color.RED;
+        colors[2][1][2] = Color.RED;
+        colors[2][2][0] = Color.RED;
+        colors[2][2][1] = Color.RED;
+        colors[2][2][2] = Color.RED;
+
+        colors[3][0][0] = Color.BLUE;
+        colors[3][0][1] = Color.BLUE;
+        colors[3][0][2] = Color.BLUE;
+        colors[3][1][0] = Color.BLUE;
+        colors[3][1][1] = Color.BLUE;
+        colors[3][1][2] = Color.BLUE;
+        colors[3][2][0] = Color.BLUE;
+        colors[3][2][1] = Color.BLUE;
+        colors[3][2][2] = Color.BLUE;
+
+        colors[4][0][0] = Color.ORANGE;
+        colors[4][0][1] = Color.ORANGE;
+        colors[4][0][2] = Color.ORANGE;
+        colors[4][1][0] = Color.ORANGE;
+        colors[4][1][1] = Color.ORANGE;
+        colors[4][1][2] = Color.ORANGE;
+        colors[4][2][0] = Color.ORANGE;
+        colors[4][2][1] = Color.ORANGE;
+        colors[4][2][2] = Color.ORANGE;
+
+        colors[5][0][0] = Color.YELLOW;
+        colors[5][0][1] = Color.YELLOW;
+        colors[5][0][2] = Color.YELLOW;
+        colors[5][1][0] = Color.YELLOW;
+        colors[5][1][1] = Color.YELLOW;
+        colors[5][1][2] = Color.YELLOW;
+        colors[5][2][0] = Color.YELLOW;
+        colors[5][2][1] = Color.YELLOW;
+        colors[5][2][2] = Color.YELLOW;
+
+        return gridPanes;
     }
 }

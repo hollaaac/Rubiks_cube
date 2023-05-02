@@ -2,6 +2,9 @@ package com.display;
 
 import java.io.*;
 import java.util.*;
+
+import javafx.scene.paint.Color;
+
 import java.lang.Math;
 
 public class Block {
@@ -1091,6 +1094,255 @@ public class Block {
 
         return turnTop + turnBottom; 
 
+    }
+    public void updateCube(Color[][][] colors) {
+        Color[] whiteColors = new Color[9];
+        Color[] blueColors = new Color[9];
+        Color[] greenColors = new Color[9];
+        Color[] yellowColors = new Color[9];
+        Color[] orangeColors = new Color[9];
+        Color[] redColors = new Color[9];
+
+        whiteColors[0] = colors[0][0][0];
+        whiteColors[1] = colors[0][0][1];
+        whiteColors[2] = colors[0][0][2];
+        whiteColors[3] = colors[0][1][0];
+        whiteColors[4] = colors[0][1][1];
+        whiteColors[5] = colors[0][1][2];
+        whiteColors[6] = colors[0][2][0];
+        whiteColors[7] = colors[0][2][1];
+        whiteColors[8] = colors[0][2][2];
+
+        blueColors[0] = colors[3][0][0];
+        blueColors[1] = colors[3][0][1];
+        blueColors[2] = colors[3][0][2];
+        blueColors[3] = colors[3][1][0];
+        blueColors[4] = colors[3][1][1];
+        blueColors[5] = colors[3][1][2];
+        blueColors[6] = colors[3][2][0];
+        blueColors[7] = colors[3][2][1];
+        blueColors[8] = colors[3][2][2];
+
+        greenColors[0] = colors[1][0][0];
+        greenColors[1] = colors[1][0][1];
+        greenColors[2] = colors[1][0][2];
+        greenColors[3] = colors[1][1][0];
+        greenColors[4] = colors[1][1][1];
+        greenColors[5] = colors[1][1][2];
+        greenColors[6] = colors[1][2][0];
+        greenColors[7] = colors[1][2][1];
+        greenColors[8] = colors[1][2][2];
+
+        yellowColors[0] = colors[5][0][0];
+        yellowColors[1] = colors[5][0][1];
+        yellowColors[2] = colors[5][0][2];
+        yellowColors[3] = colors[5][1][0];
+        yellowColors[4] = colors[5][1][1];
+        yellowColors[5] = colors[5][1][2];
+        yellowColors[6] = colors[5][2][0];
+        yellowColors[7] = colors[5][2][1];
+        yellowColors[8] = colors[5][2][2];
+
+        orangeColors[0] = colors[4][0][0];
+        orangeColors[1] = colors[4][0][1];
+        orangeColors[2] = colors[4][0][2];
+        orangeColors[3] = colors[4][1][0];
+        orangeColors[4] = colors[4][1][1];
+        orangeColors[5] = colors[4][1][2];
+        orangeColors[6] = colors[4][2][0];
+        orangeColors[7] = colors[4][2][1];
+        orangeColors[8] = colors[4][2][2];
+
+        redColors[0] = colors[2][0][0];
+        redColors[1] = colors[2][0][1];
+        redColors[2] = colors[2][0][2];
+        redColors[3] = colors[2][1][0];
+        redColors[4] = colors[2][1][1];
+        redColors[5] = colors[2][1][2];
+        redColors[6] = colors[2][2][0];
+        redColors[7] = colors[2][2][1];
+        redColors[8] = colors[2][2][2];
+
+        setWhite(whiteColors);
+        setBlue(blueColors);
+        setGreen(greenColors);
+        setYellow(yellowColors);
+        setOrange(orangeColors);
+        setRed(redColors);
+    }
+    private void setWhite(Color[] whiteColorsf){
+        char[] whiteChars = new char[9];
+        for (int i = 0; i < 9; i++) {
+            if (whiteColorsf[i] == Color.RED) {
+                whiteChars[i] = 'R';
+            } else if (whiteColorsf[i] == Color.BLUE) {
+                whiteChars[i] = 'B';
+            } else if (whiteColorsf[i] == Color.GREEN) {
+                whiteChars[i] = 'G';
+            } else if (whiteColorsf[i] == Color.YELLOW) {
+                whiteChars[i] = 'Y';
+            } else if (whiteColorsf[i] == Color.ORANGE) {
+                whiteChars[i] = 'O';
+            } else if (whiteColorsf[i] == Color.WHITE) {
+                whiteChars[i] = 'W';
+            } else {
+                throw new IllegalArgumentException("Unsupported Color");
+            }
+        }
+        Block[0][0][0].colors[1] = whiteChars[0];
+        Block[1][0][0].colors[1] = whiteChars[1];
+        Block[2][0][0].colors[1] = whiteChars[2];
+        Block[0][0][1].colors[1] = whiteChars[3];
+        Block[1][0][1].colors[1] = whiteChars[4];
+        Block[2][0][1].colors[1] = whiteChars[5];
+        Block[0][0][2].colors[1] = whiteChars[6];
+        Block[1][0][2].colors[1] = whiteChars[7];
+        Block[2][0][2].colors[1] = whiteChars[8];
+    }
+    private void setBlue(Color[] blueColorsf) {
+        char[] blueChars = new char[9];
+        for (int i = 0; i < 9; i++) {
+            if (blueColorsf[i] == Color.RED) {
+                blueChars[i] = 'R';
+            } else if (blueColorsf[i] == Color.BLUE) {
+                blueChars[i] = 'B';
+            } else if (blueColorsf[i] == Color.GREEN) {
+                blueChars[i] = 'G';
+            } else if (blueColorsf[i] == Color.YELLOW) {
+                blueChars[i] = 'Y';
+            } else if (blueColorsf[i] == Color.ORANGE) {
+                blueChars[i] = 'O';
+            } else if (blueColorsf[i] == Color.WHITE) {
+                blueChars[i] = 'W';
+            } else {
+                throw new IllegalArgumentException("Unsupported Color");
+            }
+        }
+        Block[2][0][0].colors[0] = blueChars[0];
+        Block[2][0][1].colors[0] = blueChars[1];
+        Block[2][0][2].colors[0] = blueChars[2];
+        Block[2][1][0].colors[0] = blueChars[3];
+        Block[2][1][1].colors[0] = blueChars[4];
+        Block[2][1][2].colors[0] = blueChars[5];
+        Block[2][2][0].colors[0] = blueChars[6];
+        Block[2][2][1].colors[0] = blueChars[7];
+        Block[2][2][2].colors[0] = blueChars[8];
+    }
+    private void setGreen(Color[] greenColorsf) {
+        char[] greenChars = new char[9];
+        for (int i = 0; i < 9; i++) {
+            if (greenColorsf[i] == Color.RED) {
+                greenChars[i] = 'R';
+            } else if (greenColorsf[i] == Color.BLUE) {
+                greenChars[i] = 'B';
+            } else if (greenColorsf[i] == Color.GREEN) {
+                greenChars[i] = 'G';
+            } else if (greenColorsf[i] == Color.YELLOW) {
+                greenChars[i] = 'Y';
+            } else if (greenColorsf[i] == Color.ORANGE) {
+                greenChars[i] = 'O';
+            } else if (greenColorsf[i] == Color.WHITE) {
+                greenChars[i] = 'W';
+            } else {
+                throw new IllegalArgumentException("Unsupported Color");
+            }
+        }
+        Block[0][0][0].colors[0] = greenChars[0];
+        Block[0][0][1].colors[0] = greenChars[1];
+        Block[0][0][2].colors[0] = greenChars[2];
+        Block[0][1][0].colors[0] = greenChars[3];
+        Block[0][1][1].colors[0] = greenChars[4];
+        Block[0][1][2].colors[0] = greenChars[5];
+        Block[0][2][0].colors[0] = greenChars[6];
+        Block[0][2][1].colors[0] = greenChars[7];
+        Block[0][2][2].colors[0] = greenChars[8];
+    }
+    private void setYellow(Color[] yellowColorsf) {
+        char[] yellowChars = new char[9];
+        for (int i = 0; i < 9; i++) {
+            if (yellowColorsf[i] == Color.RED) {
+                yellowChars[i] = 'R';
+            } else if (yellowColorsf[i] == Color.BLUE) {
+                yellowChars[i] = 'B';
+            } else if (yellowColorsf[i] == Color.GREEN) {
+                yellowChars[i] = 'G';
+            } else if (yellowColorsf[i] == Color.YELLOW) {
+                yellowChars[i] = 'Y';
+            } else if (yellowColorsf[i] == Color.ORANGE) {
+                yellowChars[i] = 'O';
+            } else if (yellowColorsf[i] == Color.WHITE) {
+                yellowChars[i] = 'W';
+            } else {
+                throw new IllegalArgumentException("Unsupported Color");
+            }
+        }
+        Block[0][2][2].colors[1] = yellowChars[0];
+        Block[1][2][2].colors[1] = yellowChars[1];
+        Block[2][2][2].colors[1] = yellowChars[2];
+        Block[0][2][1].colors[1] = yellowChars[3];
+        Block[1][2][1].colors[1] = yellowChars[4];
+        Block[2][2][1].colors[1] = yellowChars[5];
+        Block[0][2][0].colors[1] = yellowChars[6];
+        Block[1][2][0].colors[1] = yellowChars[7];
+        Block[2][2][0].colors[1] = yellowChars[8];
+    }
+    private void setOrange(Color[] orangeColorsf) {
+        char[] orangeChars = new char[9];
+        for (int i = 0; i < 9; i++) {
+            if (orangeColorsf[i] == Color.RED) {
+                orangeChars[i] = 'R';
+            } else if (orangeColorsf[i] == Color.BLUE) {
+                orangeChars[i] = 'B';
+            } else if (orangeColorsf[i] == Color.GREEN) {
+                orangeChars[i] = 'G';
+            } else if (orangeColorsf[i] == Color.YELLOW) {
+                orangeChars[i] = 'Y';
+            } else if (orangeColorsf[i] == Color.ORANGE) {
+                orangeChars[i] = 'O';
+            } else if (orangeColorsf[i] == Color.WHITE) {
+                orangeChars[i] = 'W';
+            } else {
+                throw new IllegalArgumentException("Unsupported Color");
+            }
+        }
+        Block[0][0][0].colors[2] = orangeChars[0];
+        Block[1][0][0].colors[2] = orangeChars[1];
+        Block[2][0][0].colors[2] = orangeChars[2];
+        Block[0][1][0].colors[2] = orangeChars[3];
+        Block[1][1][0].colors[2] = orangeChars[4];
+        Block[2][1][0].colors[2] = orangeChars[5];
+        Block[0][2][0].colors[2] = orangeChars[6];
+        Block[1][2][0].colors[2] = orangeChars[7];
+        Block[2][2][0].colors[2] = orangeChars[8];
+    }
+    private void setRed(Color[] redColorsf) {
+        char[] redChars = new char[9];
+        for (int i = 0; i < 9; i++) {
+            if (redColorsf[i] == Color.RED) {
+                redChars[i] = 'R';
+            } else if (redColorsf[i] == Color.BLUE) {
+                redChars[i] = 'B';
+            } else if (redColorsf[i] == Color.GREEN) {
+                redChars[i] = 'G';
+            } else if (redColorsf[i] == Color.YELLOW) {
+                redChars[i] = 'Y';
+            } else if (redColorsf[i] == Color.ORANGE) {
+                redChars[i] = 'O';
+            } else if (redColorsf[i] == Color.WHITE) {
+                redChars[i] = 'W';
+            } else {
+                throw new IllegalArgumentException("Unsupported Color");
+            }
+        }
+        Block[0][0][2].colors[2] = redChars[0];
+        Block[1][0][2].colors[2] = redChars[1];
+        Block[2][0][2].colors[2] = redChars[2];
+        Block[0][1][2].colors[2] = redChars[3];
+        Block[1][1][2].colors[2] = redChars[4];
+        Block[2][1][2].colors[2] = redChars[5];
+        Block[0][2][2].colors[2] = redChars[6];
+        Block[1][2][2].colors[2] = redChars[7];
+        Block[2][2][2].colors[2] = redChars[8];
     }
 
 }
