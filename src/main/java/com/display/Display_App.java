@@ -292,11 +292,7 @@ public class Display_App extends Application{
                 stage.setScene(inputScene);
             }
             if (event.getCode() == KeyCode.S) {
-                String Start = block.BlocktoString();
-                Block endBlock = new Block(3);
-                String End = endBlock.BlocktoString();
-                String solution = block.BiDiSearch(Start, End);
-                System.out.println(solution);
+                block.BiDiSearch();
             }
             if (event.getCode() == KeyCode.A) {
                 try {
@@ -329,7 +325,7 @@ public class Display_App extends Application{
             };
             if (event.getCode() == KeyCode.W && shiftDown == false) {
                 rotateDisplay("U'");
-                block.turnNotModular("U'");
+                block.turnNotModular("u");
                 block.printBlock();
             };
             if (event.getCode() == KeyCode.O && shiftDown == false) {
@@ -344,22 +340,22 @@ public class Display_App extends Application{
             }
             else if (shiftDown && event.getCode() == KeyCode.R) {
                 rotateDisplay("F'");
-                block.turnNotModular("F'");
+                block.turnNotModular("f");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.G) {
                 rotateDisplay("L'");
-                block.turnNotModular("L'");
+                block.turnNotModular("l");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.B) {
                 rotateDisplay("R'");
-                block.turnNotModular("R'");
+                block.turnNotModular("r");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.Y) {
                 rotateDisplay("D'");
-                block.turnNotModular("D'");
+                block.turnNotModular("d");
                 block.printBlock();
             }
             else if (shiftDown && event.getCode() == KeyCode.W) {
@@ -369,7 +365,7 @@ public class Display_App extends Application{
             }
             else if (shiftDown && event.getCode() == KeyCode.O) {
                 rotateDisplay("B'");
-                block.turnNotModular("B'");
+                block.turnNotModular("b");
                 block.printBlock();
             }
         });
@@ -592,7 +588,7 @@ public class Display_App extends Application{
             }
 
             if(faceTurn == 1){
-                block.turnNotModular("F'");
+                block.turnNotModular("f");
                 rotate.rotateCube(all_cubes, Color.RED, -90);
                 rotate.rotateCube(all_cubes, Color.RED, -90);
                 rotate.rotateCube(all_cubes, Color.RED, -90);
@@ -606,7 +602,7 @@ public class Display_App extends Application{
             }
 
             if(faceTurn == 3){
-                block.turnNotModular("B'");
+                block.turnNotModular("b");
                 rotate.rotateCube(all_cubes, Color.ORANGE, 90);
                 rotate.rotateCube(all_cubes, Color.ORANGE, 90);
                 rotate.rotateCube(all_cubes, Color.ORANGE, 90);
@@ -620,7 +616,7 @@ public class Display_App extends Application{
             }
 
             if(faceTurn == 5){
-                block.turnNotModular("R'");
+                block.turnNotModular("r");
                 rotate.rotateCube(all_cubes, Color.BLUE, -90);
                 rotate.rotateCube(all_cubes, Color.BLUE, -90);
                 rotate.rotateCube(all_cubes, Color.BLUE, -90);
@@ -634,7 +630,7 @@ public class Display_App extends Application{
             }
 
             if(faceTurn == 7){
-                block.turnNotModular("L'");
+                block.turnNotModular("l");
                 rotate.rotateCube(all_cubes, Color.GREEN, 90);
                 rotate.rotateCube(all_cubes, Color.GREEN, 90);
                 rotate.rotateCube(all_cubes, Color.GREEN, 90);
@@ -649,7 +645,7 @@ public class Display_App extends Application{
             }
 
             if(faceTurn == 9){
-                block.turnNotModular("U'");
+                block.turnNotModular("u");
                 rotate.rotateCube(all_cubes, Color.WHITE, 90);
                 rotate.rotateCube(all_cubes, Color.WHITE, 90); 
                 rotate.rotateCube(all_cubes, Color.WHITE, 90);  
@@ -663,7 +659,7 @@ public class Display_App extends Application{
             }
 
             if(faceTurn == 11){
-                block.turnNotModular("D'");
+                block.turnNotModular("d");
                 rotate.rotateCube(all_cubes, Color.YELLOW, -90);
                 rotate.rotateCube(all_cubes, Color.YELLOW, -90);
                 rotate.rotateCube(all_cubes, Color.YELLOW, -90); 

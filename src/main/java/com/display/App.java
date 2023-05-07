@@ -14,7 +14,6 @@ public class App{
 
         Application.launch(Display_App.class, args);
         Block block = new Block(3);
-        block.printer();
 
         //Formatting in terminal. Yes it Bothers me
         System.out.println("");
