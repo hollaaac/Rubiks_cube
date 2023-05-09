@@ -13,7 +13,6 @@ public class App{
         System.out.println("");     
 
         Application.launch(Display_App.class, args);
-        Block block = new Block(3);
 
         //Formatting in terminal. Yes it Bothers me
         System.out.println("");
