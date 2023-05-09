@@ -290,7 +290,49 @@ public class Display_App extends Application{
                 stage.setScene(inputScene);
             }
             if (event.getCode() == KeyCode.S) {
-                block.AStarSearch();
+                String solution = block.BiDiSearch();
+                System.out.print(solution);
+                for(char c : solution.toCharArray()) {
+                    if (c == 'b') {
+                        rotateDisplay("b");
+                        block.turnNotModular("b");
+                    }
+                    if (c == 'B') {
+                        rotateDisplay("B");
+                    }
+                    if (c == 'l') {
+                        rotateDisplay("L'");
+                    }
+                    if (c == 'L') {
+                        rotateDisplay("L");
+                    }
+                    if (c == 'f') {
+                        rotateDisplay("F'");
+                    }
+                    if (c == 'F') {
+                        rotateDisplay("F");
+                    }
+                    if (c == 'r') {
+                        rotateDisplay("R'");
+                    }
+                    if (c == 'R') {
+                        rotateDisplay("R");
+                    }
+                    if (c == 'd') {
+                        rotateDisplay("D'");
+                    }
+                    if (c == 'D') {
+                        rotateDisplay("D");
+                    }
+                    if (c == 'u') {
+                        rotateDisplay("U'");
+                    }
+                    if (c == 'U') {
+                        rotateDisplay("U");
+                    }
+                   
+                }
+
             }
             if (event.getCode() == KeyCode.A) {
                 try {
