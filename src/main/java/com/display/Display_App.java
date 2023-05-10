@@ -299,38 +299,91 @@ public class Display_App extends Application{
                     }
                     if (c == 'B') {
                         rotateDisplay("B");
+                        block.turnNotModular("B");
                     }
                     if (c == 'l') {
-                        rotateDisplay("L'");
+                        rotateDisplay("l");
+                        block.turnNotModular("l");
                     }
                     if (c == 'L') {
                         rotateDisplay("L");
+                        block.turnNotModular("L");
                     }
                     if (c == 'f') {
-                        rotateDisplay("F'");
+                        rotateDisplay("f");
+                        block.turnNotModular("f");
                     }
                     if (c == 'F') {
                         rotateDisplay("F");
+                        block.turnNotModular("F");
                     }
                     if (c == 'r') {
-                        rotateDisplay("R'");
+                        rotateDisplay("r");
+                        block.turnNotModular("r");
                     }
                     if (c == 'R') {
                         rotateDisplay("R");
+                        block.turnNotModular("R");
                     }
                     if (c == 'd') {
-                        rotateDisplay("D'");
+                        rotateDisplay("d");
+                        block.turnNotModular("d");
                     }
                     if (c == 'D') {
                         rotateDisplay("D");
+                        block.turnNotModular("D");
                     }
                     if (c == 'u') {
-                        rotateDisplay("U'");
+                        rotateDisplay("U");
+                        block.turnNotModular("u");
                     }
                     if (c == 'U') {
-                        rotateDisplay("U");
+                        rotateDisplay("u");
+                        block.turnNotModular("U");
                     }
                    
+                }
+                int counter = 1;
+                System.out.println("");
+                System.out.println("[---------- Solution (Bottom - Top) ----------]");
+                for(char c : solution.toCharArray()) {
+                    if (c == 'b') {
+                        System.out.println("Step " + counter + " Orange counter-clockwise: key = shft + O");
+                    }
+                    if (c == 'B') {
+                        System.out.println("Step " + counter + " Orange clockwise: key = O");
+                    }
+                    if (c == 'l') {
+                        System.out.println("Step " + counter + " Green counter-clockwise: key = shft + G");
+                    }
+                    if (c == 'L') {
+                        System.out.println("Step " + counter + " Green clockwise: Key = G");
+                    }
+                    if (c == 'f') {
+                        System.out.println("Step " + counter + " Red counter-clockwise: Key = shft + R");
+                    }
+                    if (c == 'F') {
+                        System.out.println("Step " + counter + " Red clockwise: Key = R");
+                    }
+                    if (c == 'r') {
+                        System.out.println("Step " + counter + " Blue counter-clockwise: Key = shft + B");
+                    }
+                    if (c == 'R') {
+                        System.out.println("Step " + counter + " Blue clockwise: Key = B");
+                    }
+                    if (c == 'd') {
+                        System.out.println("Step " + counter + " Yellow counter-clockwise: Key = shft + Y");
+                    }
+                    if (c == 'D') {
+                        System.out.println("Step " + counter + " Yellow clockwise: Key = Y");
+                    }
+                    if (c == 'u') {
+                        System.out.println("Step " + counter + " White clockwise: Key = W");
+                    }
+                    if (c == 'U') {
+                        System.out.println("Step " + counter + " White counter-clockwise: Key = shft + W");
+                    }
+                    counter += 1;
                 }
 
             }
