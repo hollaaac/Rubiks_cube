@@ -30,6 +30,15 @@ cd Rubik_cube-Alex # A second time to get into the correct folder.
 ```
 java -jar Rubiks_cube.jar
 ```
+## To use the application
+* Press "H" to bring up the help menu
+* Press "I" to bring up the input menu
+* Escape will return you to the rubik's cube
+* Click and drag on the cube to turn and change which face is facing you.
+* To rotate cube, follow instructions in help menu "H".
+    * Each side rotates acording to the key
+    * Red side = R  --- this will rotate the cube's red side clockwise.
+
 
 ## To implement own ideas in code
 
